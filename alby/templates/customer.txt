@@ -1,0 +1,3 @@
+{{ customer.first_name }}
+✉: {{ customer.email }}
+{{customer.phone}}

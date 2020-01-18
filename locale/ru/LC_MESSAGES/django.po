@@ -1,0 +1,1776 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-11 09:16+0000\n"
+"PO-Revision-Date: 2020-01-11 12:31+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n"
+"%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n"
+"%100<=14)? 2 : 3);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: alby/admin/admin.py:81
+msgid "Translatable Fields"
+msgstr "Переводимые поля"
+
+#: alby/admin/admin.py:84
+msgid "Properties"
+msgstr "Свойства"
+
+#: alby/admin/admin.py:110
+msgid "Price starting at"
+msgstr "Цена от"
+
+#: alby/admin/customer.py:13
+msgid "Addresses"
+msgstr "Адрес"
+
+#: alby/admin/customer.py:19 alby/models/customer.py:35
+msgid "Customer Number"
+msgstr "Номер клиента"
+
+#: alby/admin/customer.py:24
+msgid "Shipping"
+msgstr ""
+
+#: alby/admin/customer.py:29
+msgid "Billing"
+msgstr ""
+
+#: alby/apps.py:13
+msgid "My Shop"
+msgstr ""
+
+#: alby/forms/checkout.py:22
+#, fuzzy
+#| msgid "Customer Number"
+msgid "Customer's Details"
+msgstr "Номер клиента"
+
+#: alby/forms/checkout.py:23
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1583
+msgid "Email address"
+msgstr "Адрес эл. почты"
+
+#: alby/forms/checkout.py:25
+#, fuzzy
+#| msgid "Product Name"
+msgid "First Name"
+msgstr "Наименование"
+
+#: alby/forms/checkout.py:62 alby/models/address.py:47
+#, fuzzy
+#| msgid "Shipping costs"
+msgid "Shipping Address"
+msgstr "Стоимость доставки"
+
+#: alby/management/commands/initialize_shop_demo.py:20
+msgid "Initialize the workdir to run the demo of alby."
+msgstr ""
+
+#: alby/models/address.py:13
+msgid "Full name"
+msgstr "Ф.И.О."
+
+#: alby/models/address.py:18
+#, fuzzy
+#| msgid "Addresses"
+msgid "Address line 1"
+msgstr "Адрес"
+
+#: alby/models/address.py:23
+#, fuzzy
+#| msgid "Addresses"
+msgid "Address line 2"
+msgstr "Адрес"
+
+#: alby/models/address.py:30
+msgid "ZIP / Postal code"
+msgstr "Индекс"
+
+#: alby/models/address.py:35
+msgid "City"
+msgstr "Город"
+
+#: alby/models/address.py:48
+#, fuzzy
+#| msgid "Shipping costs"
+msgid "Shipping Addresses"
+msgstr "Стоимость доставки"
+
+#: alby/models/address.py:53
+msgid "Billing Address"
+msgstr "Платежный адрес"
+
+#: alby/models/address.py:54
+#, fuzzy
+#| msgid "Addresses"
+msgid "Billing Addresses"
+msgstr "Адрес"
+
+#: alby/models/customer.py:22 phoneauth/models.py:65
+msgid "Phone number"
+msgstr "Номер телефона*"
+
+#: alby/models/customer.py:28 phoneauth/models.py:71
+msgid "Required. 150 characters or fewer. Digits and + only."
+msgstr "Введите номер телефона в международном формаие. Пр.: +375291234567"
+
+#: alby/models/customer.py:30 phoneauth/models.py:73 phoneauth/models.py:77
+msgid "A user with that username already exists."
+msgstr "Такой пользователь уже зарегистрирован"
+
+#: alby/models/discount.py:6
+msgid "Discount name"
+msgstr "Название скидки"
+
+#: alby/models/discount.py:7
+msgid "Discount schema"
+msgstr "Правило скидок"
+
+#: alby/models/discount.py:7
+msgid ""
+"Type discont scheme: first- quantity? second- rebate in %. Example: 10:25 - 10 -"
+"quantity 25%"
+msgstr ""
+
+#: alby/models/models.py:36
+msgid "Ordered quantity"
+msgstr "Заказанное количество"
+
+#: alby/models/models.py:37
+msgid "Item canceled "
+msgstr "Отменить"
+
+#: alby/models/models.py:70
+msgid "Product Name"
+msgstr "Наименование"
+
+#: alby/models/models.py:75
+msgid "Slug"
+msgstr "путь"
+
+#: alby/models/models.py:83
+msgid "Sort by"
+msgstr "Сортировать по"
+
+#: alby/models/models.py:90
+msgid "Choose list view this product shall appear on."
+msgstr ""
+
+#: alby/models/models.py:100
+msgid "Product"
+msgstr ""
+
+#: alby/models/models.py:101
+msgid "Products"
+msgstr ""
+
+#: alby/models/models.py:125
+msgid "Caption"
+msgstr ""
+
+#: alby/models/models.py:130
+msgid "Short description used in the catalog's list view of products."
+msgstr ""
+
+#: alby/models/models.py:142 alby/models/models.py:194
+msgid "Unit price"
+msgstr "Цена за ед."
+
+#: alby/models/models.py:144 alby/models/models.py:196
+msgid "Net price for this product"
+msgstr "Цена без НДС"
+
+#: alby/models/models.py:148 alby/models/models.py:242
+msgid "Product code"
+msgstr "Артикул"
+
+#: alby/models/models.py:160
+msgid "Commodity"
+msgstr ""
+
+#: alby/models/models.py:161
+msgid "Commodities"
+msgstr ""
+
+#: alby/models/models.py:175 alby/models/models.py:317
+#: alby/templates/alby/catalog/prod-add2cart.html:27
+msgid "Quantity"
+msgstr "Количество"
+
+#: alby/models/models.py:178 alby/models/models.py:320
+msgid "Available quantity in stock"
+msgstr "Количество на складе"
+
+#: alby/models/models.py:186
+msgid "Description"
+msgstr "Описание"
+
+#: alby/models/models.py:189
+msgid "Full description used in the catalog's detail view of Smart Cards."
+msgstr ""
+
+#: alby/models/models.py:202
+#, fuzzy
+#| msgid "Width"
+msgid "width"
+msgstr "Ширина"
+
+#: alby/models/models.py:206
+msgid "Lamels width"
+msgstr "Ширина"
+
+#: alby/models/models.py:210
+msgid "Lamel's length"
+msgstr "Длина"
+
+#: alby/models/models.py:216
+msgid "Lamel's depth"
+msgstr "Толщина"
+
+#: alby/models/models.py:222
+#, fuzzy
+#| msgid "Height"
+msgid "weight"
+msgstr "Высота"
+
+#: alby/models/models.py:225
+#, fuzzy
+#| msgid "Weight in gram"
+msgid "Weight of item, kg"
+msgstr "Вес, грамм"
+
+#: alby/models/models.py:228 alby/models/models.py:250
+msgid "Lamel"
+msgstr "Ламель"
+
+#: alby/models/models.py:230
+msgid "Is this lamel (for calculating weight)."
+msgstr "Ламель? (для вычисления веста товара)"
+
+#: alby/models/models.py:234
+msgid "Enter weight by hand"
+msgstr "Ввести вес вручную"
+
+#: alby/models/models.py:236
+msgid "For enter lamel weight by hand"
+msgstr ""
+
+#: alby/models/models.py:251
+msgid "Lamels"
+msgstr "Ламель"
+
+#: alby/modifiers/modifiers.py:41
+msgid "Postal shipping"
+msgstr "Доставка почтой"
+
+#: alby/modifiers/modifiers.py:61
+msgid "Shipping costs"
+msgstr "Стоимость доставки"
+
+#: alby/modifiers/modifiers.py:74
+msgid "Courier delivery. Onliy within Minsk"
+msgstr "Доставка курьером. Тольго в пределах г. Минска"
+
+#: alby/modifiers/modifiers.py:81
+#, fuzzy
+#| msgid "Shipping costs"
+msgid "Courier shipping costs"
+msgstr "Стоимость доставки"
+
+#: alby/modifiers/modifiers.py:99
+msgid "Pay by card"
+msgstr "Оплата картой"
+
+#: alby/modifiers/modifiers.py:110
+msgid "Pay in advance"
+msgstr ""
+
+#: alby/settings.py:443
+msgid "Default Page"
+msgstr "Страница по умолчанию"
+
+#: alby/settings.py:504
+msgid "Product Heading"
+msgstr "Заголовок"
+
+#: alby/settings.py:509
+msgid "Default"
+msgstr ""
+
+#: alby/settings.py:510
+msgid "Add Commodity to Cart"
+msgstr ""
+
+#: alby/templates/alby/cart/editable.html:9 alby/templates/alby/cart/static.html:52
+msgid "Total weight"
+msgstr "Общий вес"
+
+#: alby/templates/alby/cart/editable.html:12 alby/templates/alby/cart/static.html:55
+#: alby/templates/alby/catalog/lamel-detail.html:37
+msgid "kg"
+msgstr "кг"
+
+#: alby/templates/alby/cart/editable.html:18 alby/templates/alby/cart/static.html:61
+#: alby/templates/alby/catalog/prod-add2cart.html:43
+#: alby/templates/alby/templatetags/cart-icon.html:38
+msgid "Subtotal"
+msgstr "Подитог"
+
+#: alby/templates/alby/cart/editable.html:29 alby/templates/alby/cart/static.html:78
+msgid "Total"
+msgstr "Итого"
+
+#: alby/templates/alby/cart/static.html:10
+msgid "There are no items in the cart"
+msgstr "Вы еще ничего не выбрали."
+
+#: alby/templates/alby/catalog/commodity-add2cart.html:9
+msgid "This item has already been sold"
+msgstr ""
+
+#: alby/templates/alby/catalog/lamel-detail.html:21
+msgid "Length"
+msgstr "Длина"
+
+#: alby/templates/alby/catalog/lamel-detail.html:22
+#: alby/templates/alby/catalog/lamel-detail.html:26
+#: alby/templates/alby/catalog/lamel-detail.html:31
+msgid "mm"
+msgstr "мм"
+
+#: alby/templates/alby/catalog/lamel-detail.html:25
+msgid "Width"
+msgstr "Ширина"
+
+#: alby/templates/alby/catalog/lamel-detail.html:30
+msgid "Depth"
+msgstr "Толщина"
+
+#: alby/templates/alby/catalog/lamel-detail.html:36
+msgid "Weight per unit"
+msgstr "Вес единицы"
+
+#: alby/templates/alby/catalog/lamel-detail.html:43
+msgid "* Price depends on order quantity. For get price enter quantity below"
+msgstr "* Цена зависит от количества, для уточнения введите необходимое Вам количество."
+
+#: alby/templates/alby/catalog/lamel-detail.html:53
+#: alby/templates/alby/catalog/lamel-detail.html:55
+msgid "Информация о товаре"
+msgstr "Информация о товаре"
+
+#: alby/templates/alby/catalog/lamel-detail.html:60
+msgid "Технические характеристики"
+msgstr "Технические характеристики"
+
+#: alby/templates/alby/catalog/prod-add2cart.html:18
+#, python-format
+msgid "Add %(product_name)s to cart"
+msgstr "Добавить %(product_name) в корзину"
+
+#: alby/templates/alby/catalog/prod-add2cart.html:35
+msgid "Unit Price"
+msgstr "Цена за ед."
+
+#: alby/templates/alby/catalog/prod-add2cart.html:54
+msgid "incl. VAT, plus shipping costs."
+msgstr "с НДС, без учета доставки"
+
+#: alby/templates/alby/catalog/prod-add2cart.html:65
+msgid "Watch product"
+msgstr "В список"
+
+#: alby/templates/alby/catalog/prod-add2cart.html:68
+msgid "The product has been successfully placed in the shopping cart:"
+msgstr "Товар добавлен в корзину"
+
+#: alby/templates/alby/catalog/prod-add2cart.html:70
+msgid "Add to cart"
+msgstr "В корзину"
+
+#: alby/templates/alby/catalog/prod-add2cart.html:76
+msgid "By adding a product to the cart you are giving consent to cookies being used."
+msgstr ""
+
+#: alby/templates/alby/catalog/prod-add2cart.html:96
+msgid "for {{ context.unit_price }} per piece: {{ context.subtotal }}"
+msgstr ""
+
+#: alby/templates/alby/catalog/prod-add2cart.html:104
+msgid "Show Cart"
+msgstr ""
+
+#: alby/templates/alby/catalog/prod-add2cart.html:106
+msgid "Continue Shopping"
+msgstr ""
+
+#: alby/templates/alby/catalog/prod-add2cart.html:107
+msgid "Cancel"
+msgstr ""
+
+#: alby/templates/alby/checkout/payment-method-form.html:22
+#: alby/templates/alby/checkout/payment-method-form.html:25
+#: alby/templates/alby/checkout/shipping-method-form.html:22
+#: alby/templates/alby/checkout/shipping-method-form.html:25
+msgid "Additional charge"
+msgstr ""
+
+#: alby/templates/alby/checkout/payment-method-form.html:31
+msgid "No payment method available"
+msgstr ""
+
+#: alby/templates/alby/checkout/shipping-address-form.html:32
+msgid "Choose a previously used shipping address"
+msgstr ""
+
+#: alby/templates/alby/checkout/shipping-address-form.html:37
+msgid "Add a new shipping address"
+msgstr ""
+
+#: alby/templates/alby/checkout/shipping-address-form.html:47
+msgid "Remove this address"
+msgstr ""
+
+#: alby/templates/alby/checkout/shipping-method-form.html:31
+msgid "No shipping method available"
+msgstr ""
+
+#: alby/templates/alby/navbar/language-chooser.html:5
+msgid "Language"
+msgstr ""
+
+#: alby/templates/alby/navbar/login-logout.html:19
+msgid "Sign in"
+msgstr ""
+
+#: alby/templates/alby/navbar/login-logout.html:27
+msgid "Logout"
+msgstr ""
+
+#: alby/templates/alby/navbar/login-logout.html:52
+#: alby/templates/alby/navbar/login-logout.html:55
+msgid "E-Mail"
+msgstr ""
+
+#: alby/templates/alby/navbar/login-logout.html:59
+#: alby/templates/alby/navbar/login-logout.html:62
+msgid "Password"
+msgstr ""
+
+#: alby/templates/alby/navbar/login-logout.html:69
+msgid "Stay logged in"
+msgstr ""
+
+#: alby/templates/alby/navbar/login-logout.html:74
+msgid "Login"
+msgstr ""
+
+#: alby/templates/alby/navbar/login-logout.html:82
+msgid "Password Forgotten?"
+msgstr ""
+
+#: alby/templates/alby/navbar/login-logout.html:85
+msgid "Register Yourself"
+msgstr ""
+
+#: alby/templates/alby/navbar/search-form.html:14
+msgid "Search"
+msgstr ""
+
+#: alby/templates/alby/navbar/search-form.html:16
+msgid "Refine your search"
+msgstr ""
+
+#: alby/templates/alby/navbar/watch-icon.html:7
+msgid "Watch List"
+msgstr "В список"
+
+#: alby/templates/alby/pages/error.html:14
+#, python-format
+msgid ""
+"In case you have ordered anything on this site before, please <a href=\"%(login_url)s"
+"\">sign in</a> and try again."
+msgstr ""
+"Если Вы заказывали что- нибудь, на этом сайте ранее, пожалуйста <a href="
+"\"%(login_url)s\">войдите в учетную запись</a> и попробуйте еще раз."
+
+#: alby/templates/alby/templatetags/cart-icon.html:16
+msgctxt "cart icon"
+msgid "1 Item"
+msgstr ""
+
+#: alby/templates/alby/templatetags/cart-icon.html:16
+msgctxt "cart icon"
+msgid "{} Items"
+msgstr ""
+
+#: alby/templates/alby/templatetags/cart-icon.html:33
+#, python-format
+msgid "and %(remaining)s <a href=\"%(shop_cart_url)s\">more items</a>."
+msgstr ""
+
+#: phoneauth/modelfields.py:9
+msgid "Email or Phone address"
+msgstr "Номе тел. или Email"
+
+#: phoneauth/models.py:76
+msgid "email address"
+msgstr "Email адрес"
+
+#: phoneauth/models.py:85
+#, fuzzy
+#| msgid "Customer's phonenumber"
+msgid "Customer phone number"
+msgstr "Номер телефона"
+
+#: phoneauth/models.py:86
+#, fuzzy
+#| msgid "Customer's phonenumber"
+msgid "Customers phone number"
+msgstr "Номер телефона"
+
+#: phoneauth/models.py:120
+#, python-brace-format
+msgid ""
+"A customer with the e-mail address or phone number ‘{email_phone}’ already exists."
+msgstr ""
+
+#: phoneauth/validators.py:9
+msgid ""
+"The Phone number or Email entered is not valid. Phone number must have international "
+"format!"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/contrib/messages/apps.py:7
+msgid "Messages"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/contrib/sitemaps/apps.py:7
+msgid "Site Maps"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/contrib/syndication/apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/paginator.py:45
+msgid "That page number is not an integer"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/paginator.py:47
+msgid "That page number is less than 1"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/paginator.py:52
+msgid "That page contains no results"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:32
+msgid "Enter a valid value."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:103
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:659
+msgid "Enter a valid URL."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:155
+msgid "Enter a valid integer."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:166
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:240
+msgid "Enter a valid “slug” consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:247
+msgid ""
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or hyphens."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:256
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:276
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:261
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:277
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:271
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:275
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:305
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:311
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:343
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:352
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:362
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has %(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has %(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:377
+#, python-format
+msgid "Ensure this value has at most %(limit_value)d character (it has %(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has %(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:396
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:291
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:326
+#, fuzzy
+#| msgid "Customer Number"
+msgid "Enter a number."
+msgstr "Номер клиента"
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:398
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:403
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:408
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:470
+#, python-format
+msgid ""
+"File extension “%(extension)s” is not allowed. Allowed extensions are: "
+"%(allowed_extensions)s."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/core/validators.py:522
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/base.py:1181
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:759
+msgid "and"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/base.py:1183
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:104
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:105
+msgid "This field cannot be null."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:106
+msgid "This field cannot be blank."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:107
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:111
+#, python-format
+msgid "%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:130
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:933
+#, python-format
+msgid "“%(value)s” value must be either True or False."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:934
+#, python-format
+msgid "“%(value)s” value must be either True, False, or None."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:936
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:977
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1041
+msgid "Comma-separated integers"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1090
+#, python-format
+msgid "“%(value)s” value has an invalid date format. It must be in YYYY-MM-DD format."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1092
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1235
+#, python-format
+msgid "“%(value)s” value has the correct format (YYYY-MM-DD) but it is an invalid date."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1095
+msgid "Date (without time)"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1233
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ] format."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1237
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]) but it "
+"is an invalid date/time."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1241
+msgid "Date (with time)"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1389
+#, python-format
+msgid "“%(value)s” value must be a decimal number."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1391
+msgid "Decimal number"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1530
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[.uuuuuu] "
+"format."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1533
+#, fuzzy
+#| msgid "Description"
+msgid "Duration"
+msgstr "Описание"
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1606
+msgid "File path"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1672
+#, python-format
+msgid "“%(value)s” value must be a float."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1674
+msgid "Floating point number"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1712
+#, python-format
+msgid "“%(value)s” value must be an integer."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1714
+msgid "Integer"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1797
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1813
+msgid "IPv4 address"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1844
+#, fuzzy
+#| msgid "Addresses"
+msgid "IP address"
+msgstr "Адрес"
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1924
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1925
+#, python-format
+msgid "“%(value)s” value must be either None, True or False."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1927
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1962
+msgid "Positive integer"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1975
+msgid "Positive small integer"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:1989
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2021
+msgid "Small integer"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2028
+msgid "Text"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2056
+#, python-format
+msgid ""
+"“%(value)s” value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] format."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2058
+#, python-format
+msgid ""
+"“%(value)s” value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an invalid "
+"time."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2061
+msgid "Time"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2187
+msgid "URL"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2209
+msgid "Raw binary data"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2274
+#, python-format
+msgid "“%(value)s” is not a valid UUID."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/__init__.py:2276
+msgid "Universally unique identifier"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/files.py:221
+msgid "File"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/files.py:360
+msgid "Image"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/related.py:778
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/related.py:780
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/related.py:1012
+msgid "One-to-one relationship"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/related.py:1066
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/related.py:1067
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/db/models/fields/related.py:1109
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: tmp/temp/lib/python3.6/site-packages/django/forms/boundfield.py:149
+msgid ":?.!"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:53
+msgid "This field is required."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:246
+#, fuzzy
+#| msgid "Customer's phonenumber"
+msgid "Enter a whole number."
+msgstr "Номер телефона"
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:397
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:1127
+msgid "Enter a valid date."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:421
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:1128
+msgid "Enter a valid time."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:443
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:472
+msgid "Enter a valid duration."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:473
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:533
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:534
+msgid "No file was submitted."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:535
+msgid "The submitted file is empty."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:537
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural "Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:540
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:601
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a corrupted "
+"image."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:763
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:853
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:1275
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:854
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:969
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:1274
+msgid "Enter a list of values."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:970
+msgid "Enter a complete value."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/fields.py:1186
+msgid "Enter a valid UUID."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: tmp/temp/lib/python3.6/site-packages/django/forms/forms.py:81
+msgid ":"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/forms.py:207
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/formsets.py:93
+msgid "ManagementForm data is missing or has been tampered with"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/formsets.py:345
+#, python-format
+msgid "Please submit %d or fewer forms."
+msgid_plural "Please submit %d or fewer forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/formsets.py:352
+#, python-format
+msgid "Please submit %d or more forms."
+msgid_plural "Please submit %d or more forms."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/formsets.py:379
+#: tmp/temp/lib/python3.6/site-packages/django/forms/formsets.py:386
+msgid "Order"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/formsets.py:391
+msgid "Delete"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:754
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:758
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:764
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique for the "
+"%(lookup)s in %(date_field)s."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:773
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:1094
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:1161
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/models.py:1277
+#, python-format
+msgid "“%(pk)s” is not a valid value."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/utils.py:162
+#, python-format
+msgid ""
+"%(datetime)s couldn’t be interpreted in time zone %(current_timezone)s; it may be "
+"ambiguous or it may not exist."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/widgets.py:395
+msgid "Clear"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/widgets.py:396
+msgid "Currently"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/widgets.py:397
+msgid "Change"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/widgets.py:709
+msgid "Unknown"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/widgets.py:710
+msgid "Yes"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/forms/widgets.py:711
+msgid "No"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/template/defaultfilters.py:788
+msgid "yes,no,maybe"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/template/defaultfilters.py:817
+#: tmp/temp/lib/python3.6/site-packages/django/template/defaultfilters.py:834
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/template/defaultfilters.py:836
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/template/defaultfilters.py:838
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/template/defaultfilters.py:840
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/template/defaultfilters.py:842
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/template/defaultfilters.py:844
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dateformat.py:62
+msgid "p.m."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dateformat.py:63
+msgid "a.m."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dateformat.py:68
+msgid "PM"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dateformat.py:69
+msgid "AM"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dateformat.py:150
+msgid "midnight"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dateformat.py:152
+msgid "noon"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Monday"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Tuesday"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Wednesday"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Thursday"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:6
+msgid "Friday"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:7
+msgid "Saturday"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:7
+msgid "Sunday"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Mon"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Tue"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Wed"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Thu"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:10
+msgid "Fri"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:11
+msgid "Sat"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:11
+msgid "Sun"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "January"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "February"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "March"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "April"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "May"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:14
+msgid "June"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "July"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "August"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "September"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "October"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:15
+msgid "November"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:16
+msgid "December"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "jan"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "feb"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "mar"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "apr"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "may"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:19
+msgid "jun"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "jul"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "aug"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "sep"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "oct"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "nov"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:20
+msgid "dec"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:23
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:24
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:25
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:26
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:27
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:28
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:29
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:30
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:33
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:34
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:37
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:38
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:39
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:40
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:41
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:42
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:43
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:44
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:45
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:46
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:47
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/dates.py:48
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/text.py:69
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/text.py:235
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: tmp/temp/lib/python3.6/site-packages/django/utils/text.py:254
+#: tmp/temp/lib/python3.6/site-packages/django/utils/timesince.py:83
+msgid ", "
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/timesince.py:10
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/timesince.py:14
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/utils/timesince.py:72
+msgid "0 minutes"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/csrf.py:110
+msgid "Forbidden"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/csrf.py:111
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/csrf.py:115
+msgid ""
+"You are seeing this message because this HTTPS site requires a “Referer header” to be "
+"sent by your Web browser, but none was sent. This header is required for security "
+"reasons, to ensure that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/csrf.py:120
+msgid ""
+"If you have configured your browser to disable “Referer” headers, please re-enable "
+"them, at least for this site, or for HTTPS connections, or for “same-origin” requests."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/csrf.py:124
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the “Referrer-Policy: no-referrer” header, please remove them. The CSRF "
+"protection requires the “Referer” header to do strict referer checking. If you’re "
+"concerned about privacy, use alternatives like <a rel=\"noreferrer\" …> for links to "
+"third-party sites."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/csrf.py:132
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when submitting "
+"forms. This cookie is required for security reasons, to ensure that your browser is "
+"not being hijacked by third parties."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/csrf.py:137
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable them, at "
+"least for this site, or for “same-origin” requests."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/csrf.py:142
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:41
+msgid "No year specified"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:61
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:111
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:208
+msgid "Date out of range"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:90
+msgid "No month specified"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:142
+msgid "No day specified"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:188
+msgid "No week specified"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:338
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:367
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:589
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s.allow_future is "
+"False."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/dates.py:623
+#, python-format
+msgid "Invalid date string “%(datestr)s” given format “%(format)s”"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/detail.py:54
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/list.py:67
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/list.py:72
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/generic/list.py:154
+#, python-format
+msgid "Empty list and “%(class_name)s.allow_empty” is False."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/static.py:40
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/static.py:42
+#, python-format
+msgid "“%(path)s” does not exist"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/static.py:80
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:7
+msgid "Django: the Web framework for perfectionists with deadlines."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:346
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" target="
+"\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:368
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:369
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener\">DEBUG=True</a> "
+"is in your settings file and you have not configured any URLs."
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:384
+msgid "Django Documentation"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:385
+msgid "Topics, references, &amp; how-to’s"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:396
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:397
+msgid "Get started with Django"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:408
+msgid "Django Community"
+msgstr ""
+
+#: tmp/temp/lib/python3.6/site-packages/django/views/templates/default_urlconf.html:409
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#~ msgid "Any Manufacturer"
+#~ msgstr "Все производители"
+
+#~ msgid "Restrict product on this manufacturer only"
+#~ msgstr "Фильтровать по производителям"
+
+#~ msgid "Name"
+#~ msgstr "Наименование"
+
+#~ msgid "Manufacturer"
+#~ msgstr "Производитель"
+
+#~ msgid "Width in mm"
+#~ msgstr "Ширина, мм"
+
+#~ msgid "Height in mm"
+#~ msgstr "Высота, мм"
+
+#~ msgid "Weight"
+#~ msgstr "Вес"
+
+#~ msgid "Manufacturer Filter"
+#~ msgstr "Фильтр по производителям"
+
+#~ msgid "Details"
+#~ msgstr "Подробнее"
+
+#~ msgid "Dimensions"
+#~ msgstr "Размер"
+
+#~ msgid "inch"
+#~ msgstr "дюйм"

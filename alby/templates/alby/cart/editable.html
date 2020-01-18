@@ -1,0 +1,44 @@
+{% extends "shop/cart/editable.html" %}
+{% load i18n cms_tags sass_tags sekizai_tags %}
+{% block shop-cart-foot %}
+	<div class="row">
+		<div class="col-12 col-md-6 order-md-last border-top">
+                {% if cart.total_weight %}
+            <div class="row py-2 lead">
+				<div class="col-6 text-right text-nowrap">
+					{% trans "Total weight" %}
+				</div>
+				<div class="col-4 col-md-6 text-right text-nowrap">
+					<strong djng-bind-if="cart.total_weight">{{ cart.total_weight }}</strong> {% trans "kg" %}
+				</div>
+			</div>
+        {% endif %}
+			<div class="row py-2 lead">
+				<div class="col text-right text-nowrap">
+					{% trans "Subtotal" %}
+				</div>
+				<div class="col text-right text-nowrap" ng-bind="cart.subtotal">
+					<!-- Subtotal -->
+				</div>
+			</div>
+			<div class="row py-2" ng-repeat="extra_row in cart.extra_rows">
+				<div class="col text-right text-nowrap" ng-bind="extra_row.label"></div>
+				<div class="col text-right text-nowrap" ng-bind="extra_row.amount"></div>
+			</div>
+			<div class="row py-2 shop-double-border lead font-weight-bold">
+				<div class="col text-right text-nowrap">{% trans "Total" %}</div>
+				<div class="col text-right text-nowrap" ng-bind="cart.total">
+					<!-- Total -->
+				</div>
+			</div>
+		{% if instance.right_extension %}
+			{% render_plugin instance.right_extension %}
+		{% endif %}
+		</div>
+		<div class="col-12 col-md-6">
+		{% if instance.left_extension %}
+			{% render_plugin instance.left_extension %}
+		{% endif %}
+		</div>
+	</div>
+{% endblock shop-cart-foot %}
