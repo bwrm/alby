@@ -39,3 +39,4 @@ docs/
 /alby/private.py
 /alby/management/
 /alby/migrations/
+/phoneauth/migrations/
