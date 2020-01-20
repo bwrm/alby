@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from shop.modifiers.base import BaseCartModifier
-from alby.modifiers.providers import NoPaymentRequired
+from alby.modifiers.providers import PayWhenTake
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from shop.modifiers.pool import cart_modifiers_pool
@@ -11,7 +11,7 @@ from shop.serializers.cart import ExtraCartRow
 from shop.money import Money
 from shop.shipping.modifiers import ShippingModifier
 from shop.payment.modifiers import PaymentModifier
-from shop.payment.providers import ForwardFundPayment
+# from shop.payment.providers import ForwardFundPayment
 
 
 class PrimaryCartModifier(DefaultCartModifier):
@@ -88,17 +88,17 @@ class CourierModifier(ShippingModifier):
 Payment Modifiers
 """
 
-class PayByCardModifier(PaymentModifier):
-    """
-    This modifiers has no influence on the cart final. It can be used,
-    to enable the customer to pay the products on delivery.
-    """
-    identifier = 'card-payment'
-
-    payment_provider = ForwardFundPayment()
-
-    def get_choice(self):
-        return (self.payment_provider.namespace, _("Pay by card"))
+# class PayByCardModifier(PaymentModifier):
+#     """
+#     This modifiers has no influence on the cart final. It can be used,
+#     to enable the customer to pay the products on delivery.
+#     """
+#     identifier = 'card-payment'
+#
+#     payment_provider = ForwardFundPayment()
+#
+#     def get_choice(self):
+#         return (self.payment_provider.namespace, _("Pay by card"))
 
 
 class PayWhenTakeModifier(PaymentModifier):
@@ -106,7 +106,7 @@ class PayWhenTakeModifier(PaymentModifier):
     This modifiers has no influence on the cart final. It can be used,
     to enable the customer to pay the products on delivery.
     """
-    payment_provider = NoPaymentRequired()
+    payment_provider = PayWhenTake()
 
     def get_choice(self):
         return (self.payment_provider.namespace, _("Pay when taking"))

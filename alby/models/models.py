@@ -13,7 +13,6 @@ from parler.managers import TranslatableManager, TranslatableQuerySet
 from parler.models import TranslatableModelMixin, TranslatedFieldsModel, TranslatedFields
 from parler.fields import TranslatedField
 from cms.models.fields import PlaceholderField
-from shop.money import Money, MoneyMaker
 from shop.money.fields import MoneyField
 from shop.models.product import BaseProduct, BaseProductManager, CMSPageReferenceMixin
 from shop.models.inventory import BaseInventory, AvailableProductMixin
@@ -26,29 +25,14 @@ from shop.models.defaults.mapping import ProductPage, ProductImage
 from alby.models.address import BillingAddress, ShippingAddress
 from alby.models.customer import Customer
 from alby.models.discount import Discount
+from shop.models.defaults.order import Order
+from shop.models.defaults.order_item import OrderItem
 
-__all__ = ['Cart', 'CartItem', 'Order', 'Delivery', 'DeliveryItem',
+__all__ = ['Cart', 'CartItem', 'Order', 'OrderItem',
            'BillingAddress', 'ShippingAddress', 'Customer', ]
-
-
-class OrderItem(BaseOrderItem):
-    quantity = models.PositiveIntegerField(_("Ordered quantity"))
-    canceled = models.BooleanField(_("Item canceled "), default=False)
-
-    def populate_from_cart_item(self, cart_item, request):
-        super(OrderItem, self).populate_from_cart_item(cart_item, request)
-        # the product's unit_price must be fetched from the product's variant
-        try:
-            variant = cart_item.product.get_product_variant(
-                product_code=cart_item.product_code)
-            self._unit_price = Decimal(variant.unit_price)
-        except (KeyError, ObjectDoesNotExist) as e:
-            raise CartItem.DoesNotExist(e)
-
 
 class ProductQuerySet(TranslatableQuerySet, PolymorphicQuerySet):
     pass
-
 
 class ProductManager(BaseProductManager, TranslatableManager):
     queryset_class = ProductQuerySet
@@ -208,12 +192,14 @@ class Lamel(AvailableProductMixin, Product):
     length = models.CharField(
         _("Lamel's length"),
         max_length=25,
+        default=0,
         blank=True,
     )
 
     depth = models.CharField(
         _("Lamel's depth"),
         max_length=25,
+        default=8,
         blank=True,
     )
 

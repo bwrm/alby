@@ -36,4 +36,6 @@ tmp/
 node_modules
 wsgi.py
 docs/
-
+/alby/private.py
+/alby/management/
+/alby/migrations/

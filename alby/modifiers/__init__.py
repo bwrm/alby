@@ -1,3 +1,2 @@
-from .modifiers import PrimaryCartModifier, PostalShippingModifier, PayByCardModifier #no
+from .modifiers import PrimaryCartModifier, PostalShippingModifier #no
 from .workflows import PayWhenTakeWorkflowMixin  #ni
-from .providers import NoPaymentRequired
