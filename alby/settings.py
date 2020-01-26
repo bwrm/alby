@@ -495,7 +495,7 @@ CMSPLUGIN_CASCADE_PLUGINS = [
     'cmsplugin_cascade.leaflet',
     'cmsplugin_cascade.link',
     'shop.cascade',
-    'alby.modifiers'
+    # 'alby.cascade',
 ]
 
 CMSPLUGIN_CASCADE = {
@@ -610,16 +610,16 @@ SELECT2_I18N_PATH = 'node_modules/select2/dist/js/i18n'
 ELASTICSEARCH_HOST = os.getenv('ELASTICSEARCH_HOST', 'localhost')
 
 HAYSTACK_CONNECTIONS = {
+    # 'en': {
+    #     'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+    #     'URL': 'http://{}:9200/'.format(ELASTICSEARCH_HOST),
+    #     'INDEX_NAME': 'alby-en',
+    # },
     'default': {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
         'URL': 'http://{}:9200/'.format(ELASTICSEARCH_HOST),
-        'INDEX_NAME': 'alby-en',
-    },
-    'ru': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://{}:9200/'.format(ELASTICSEARCH_HOST),
         'INDEX_NAME': 'alby-ru',
-    }
+    },
 }
 
 HAYSTACK_ROUTERS = [
@@ -636,21 +636,23 @@ SHOP_MONEY_FORMAT = '{amount}'
 SHOP_EDITCART_NG_MODEL_OPTIONS = "{updateOn: 'default blur', debounce: {'default': 2500, 'blur': 0}}"
 
 SHOP_CART_MODIFIERS = [
+    'alby.modifiers.PayWhenTakeModifier',
     'alby.modifiers.PrimaryCartModifier',
     # 'shop.modifiers.taxes.CartExcludedTaxModifier', #add if merchant pay VAT
     'alby.modifiers.PostalShippingModifier',
-    # 'alby.modifiers.CourierModifier',
-    #'alby.modifiers.PayByCardModifier', # Add Pay by Card to checkout process
-    # 'alby.modifiers.PayWhenTakeModifier',
+    'alby.modifiers.CourierModifier',
+    'alby.modifiers.PayByCardModifier', # Add Pay by Card to checkout process
+    'alby.modifiers.PayAtPostModifier', # Add Pay by Card to checkout process
     'shop.shipping.modifiers.SelfCollectionModifier',
 ]
 
 SHOP_ORDER_WORKFLOWS = [
     'shop.payment.workflows.ManualPaymentWorkflowMixin',
     # 'alby.modifiers.workflows.PayWhenTakeWorkflowMixin',
+    'shop.shipping.workflows.PayWhenTakeWorkflowMixin',
     'shop.payment.workflows.CancelOrderWorkflowMixin',
-    'shop.shipping.workflows.PartialDeliveryWorkflowMixin',
-    'shop.shipping.workflows.SelfCollectionWorkflowMixin',
+    # 'shop.shipping.workflows.PartialDeliveryWorkflowMixin',
+    # 'shop.shipping.workflows.SelfCollectionWorkflowMixin',
 ]
 
 SHOP_CASCADE_FORMS = {
@@ -658,8 +660,10 @@ SHOP_CASCADE_FORMS = {
     'GuestForm': 'alby.forms.checkout.GuestForm',
     'ShippingAddressForm': 'alby.forms.checkout.ShippingAddressForm',
     'BillingAddressForm': 'shop.forms.checkout.BillingAddressForm',
-    'PaymentMethodForm': 'shop.forms.checkout.PaymentMethodForm',
-    'ShippingMethodForm': 'shop.forms.checkout.ShippingMethodForm',
+    'PaymentMethodForm': 'alby.forms.checkout.PaymentMethodForm',
+    # 'PaymentMethodForm': 'shop.forms.checkout.PaymentMethodForm',
+    # 'ShippingMethodForm': 'shop.forms.checkout.ShippingMethodForm',
+    'ShippingMethodForm': 'alby.forms.checkout.ShippingMethodForm',
     'ExtraAnnotationForm': 'shop.forms.checkout.ExtraAnnotationForm',
     'AcceptConditionForm': 'shop.forms.checkout.AcceptConditionForm',
 }

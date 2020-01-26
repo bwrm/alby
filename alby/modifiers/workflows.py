@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import ugettext_lazy as _
 from django_fsm import transition, RETURN_VALUE
-# from alby.models.order import Order
+
 
 
 class PayWhenTakeWorkflowMixin(object):
@@ -18,15 +18,6 @@ class PayWhenTakeWorkflowMixin(object):
         'order_completed': _("Order completed"),
     }
 
-    # def __init__(self, *args, **kwargs):
-    #     if not isinstance(self, Order):
-    #         raise ImproperlyConfigured("class 'ManualPaymentWorkflowMixin' is not of type 'BaseOrder'")
-    #     super(PayWhenTakeWorkflowMixin, self).__init__(*args, **kwargs)
-
-    @property
-    def associate_with_delivery(self):
-        return True
-
     @transition(field='status', source='created', target='ready_for_take',
                 custom=dict(admin=True, button_name=_("Prepare for taking")))
     def ready_for_take(self):
@@ -38,7 +29,7 @@ class PayWhenTakeWorkflowMixin(object):
 
     @transition(field='status', source='order_completed', target='ready_for_take',
                 custom=dict(admin=True, button_name=_("Uncompletad")))
-    def ready_for_take(self):
+    def uncomplited(self):
         """
         Put the parcel into the outgoing delivery.
         This method is invoked automatically

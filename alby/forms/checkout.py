@@ -13,9 +13,11 @@ from shop.models.address import ShippingAddressModel, BillingAddressModel
 from shop.models.customer import CustomerModel
 from shop.modifiers.pool import cart_modifiers_pool
 from shop.forms.checkout import AddressForm, ShippingAddressForm as BaseShippingAddressForm
+from shop.forms.checkout import ShippingMethodForm as BaseShippingMethodForm
+from shop.forms.checkout import PaymentMethodForm as BasePaymentMethodForm
 from shop.forms.checkout import CustomerForm as BaseCustomerForm
 from phonenumber_field.modelfields import PhoneNumberField
-
+from django.core.exceptions import ValidationError
 
 class CustomerForm(DialogModelForm):
     scope_prefix = 'customer'
@@ -98,3 +100,52 @@ class ShippingAddressForm(BaseShippingAddressForm):
         self.fields['address1'].required = False
         self.fields['zip_code'].required = False
         self.fields['city'].required = False
+
+
+class PaymentMethodForm(DialogForm):
+
+    scope_prefix = 'payment_method'
+
+    payment_modifier = fields.ChoiceField(
+        label=_("Payment Method"),
+        widget=RadioSelect(attrs={'ng-change': 'updateMethod()'}),
+    )
+
+    def __init__(self, *args, **kwargs):
+        choices = [m.get_choice() for m in cart_modifiers_pool.get_payment_modifiers()]
+        self.base_fields['payment_modifier'].choices = choices
+        if len(choices) == 1:
+            # if there is only one shipping method available, always set it as default
+            try:
+                kwargs['initial']['payment_modifier'] = choices[0][0]
+            except KeyError:
+                pass
+        super(PaymentMethodForm, self).__init__(*args, **kwargs)
+
+    def has_choices(self):
+        return len(self.base_fields['payment_modifier'].choices) > 0
+
+    @classmethod
+    def form_factory(cls, request, data, cart):
+        cart.update(request)
+        active_mod = data['payment_modifier'] if data['payment_modifier'] is not None else cart.extra['payment_modifier']
+        current_payment_cart_modifier = cart_modifiers_pool.get_active_payment_modifier(active_mod)
+        payment_method_form = cls(data=data, cart=cart)
+        city = cart.shipping_address.city
+        try:
+            if current_payment_cart_modifier.is_disabled(cart):
+                payment_method_form.add_error('payment_modifier', _('Select a valid Payment method. Is not one of the available choices.'))
+        except:
+            pass
+        if payment_method_form.is_valid():
+            payment_data = data.get('payment_data') or {}
+            cart.extra.update(payment_method_form.cleaned_data, payment_extra_data=payment_data)
+        return payment_method_form
+
+class ShippingMethodForm(BaseShippingMethodForm):
+
+    def __init__(self, *args, **kwargs):
+        choices = [m.get_choice() for m in cart_modifiers_pool.get_shipping_modifiers()
+                   if not m.is_disabled(kwargs['cart'])]
+        self.base_fields['shipping_modifier'].choices = choices
+        super(ShippingMethodForm, self).__init__(*args, **kwargs)

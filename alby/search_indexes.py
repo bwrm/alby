@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from haystack import indexes
 from shop.search.indexes import ProductIndex as ProductIndexBase
-from alby.models import  Commodity
+from alby.models import  Commodity, Lamel
 
 
 class ProductIndex(ProductIndexBase):
@@ -22,10 +22,15 @@ class ProductIndex(ProductIndexBase):
 myshop_search_index_classes = []
 
 
-class CommodityIndex(ProductIndex, indexes.Indexable):
+# class CommodityIndex(ProductIndex, indexes.Indexable):
+#     def get_model(self):
+#         return Commodity
+
+class LamelIndex(ProductIndex, indexes.Indexable):
     def get_model(self):
-        return Commodity
+        return Lamel
 
 
-myshop_search_index_classes.append(CommodityIndex)
+# myshop_search_index_classes.append(CommodityIndex)
+myshop_search_index_classes.append(LamelIndex)
 

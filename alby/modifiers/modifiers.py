@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from shop.modifiers.base import BaseCartModifier
-from alby.modifiers.providers import PayWhenTake
+from alby.modifiers.providers import PayWhenTake, PayAtPostProvider
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from shop.modifiers.pool import cart_modifiers_pool
@@ -11,7 +11,7 @@ from shop.serializers.cart import ExtraCartRow
 from shop.money import Money
 from shop.shipping.modifiers import ShippingModifier
 from shop.payment.modifiers import PaymentModifier
-# from shop.payment.providers import ForwardFundPayment
+from shop.payment.providers import ForwardFundPayment
 
 
 class PrimaryCartModifier(DefaultCartModifier):
@@ -74,7 +74,7 @@ class CourierModifier(ShippingModifier):
         return (self.identifier, _("Courier delivery. Onliy within Minsk"))
 
     def add_extra_cart_row(self, cart, request):
-        if not self.is_active(cart) and len(cart_modifiers_pool.get_shipping_modifiers()) > 1:
+        if not self.is_active(cart.extra.get('shipping_modifier')) and len(cart_modifiers_pool.get_shipping_modifiers()) > 1:
             return
         # add a shipping flat fee
         amount = Money('3')
@@ -82,23 +82,29 @@ class CourierModifier(ShippingModifier):
         cart.extra_rows[self.identifier] = ExtraCartRow(instance)
         cart.total += amount
 
+    # def is_disabled(self, cart):
+    #     erratas_minsk = ['Minsk', 'Mensk', 'Минск', 'Менск', 'Миск', 'Минкс']
+    #     work_in_cities = [erratas_minsk, ]
+    #     if cart.shipping_address.city in work_in_cities:
+    #         return True
+
 
 
 """
 Payment Modifiers
 """
 
-# class PayByCardModifier(PaymentModifier):
-#     """
-#     This modifiers has no influence on the cart final. It can be used,
-#     to enable the customer to pay the products on delivery.
-#     """
-#     identifier = 'card-payment'
-#
-#     payment_provider = ForwardFundPayment()
-#
-#     def get_choice(self):
-#         return (self.payment_provider.namespace, _("Pay by card"))
+class PayByCardModifier(PaymentModifier):
+    """
+    This modifiers has no influence on the cart final. It can be used,
+    to enable the customer to pay the products on delivery.
+    """
+    identifier = 'forward-fund-payment'
+
+    payment_provider = ForwardFundPayment()
+
+    def get_choice(self):
+        return (self.payment_provider.namespace, _("Pay by card"))
 
 
 class PayWhenTakeModifier(PaymentModifier):
@@ -107,6 +113,34 @@ class PayWhenTakeModifier(PaymentModifier):
     to enable the customer to pay the products on delivery.
     """
     payment_provider = PayWhenTake()
-
+    identifier = 'pay-when-take'
     def get_choice(self):
-        return (self.payment_provider.namespace, _("Pay when taking"))
+        return (self.payment_provider.namespace, _("Pay when take"))
+
+    def is_disabled(self, cart):
+        disabled_methods = ['postal-shipping',]
+        if cart.extra.get('shipping_modifier') in disabled_methods:
+            return True
+
+class PayAtPostModifier(PaymentModifier):
+    """
+    This modifiers has no influence on the cart final. It can be used,
+    to enable the customer to pay the products on delivery.
+    """
+    payment_provider = PayAtPostProvider()
+    identifier = 'pay-at-post'
+    def get_choice(self):
+        return (self.payment_provider.namespace, _("Pay at post"))
+
+    def add_extra_cart_row(self, cart, request):
+        if not self.is_active(cart.extra.get('payment_modifier')) and len(cart_modifiers_pool.get_payment_modifiers()) > 1:
+            return False
+        amount = Money('30')
+        instance = {'label': _("Extra charge by post"), 'amount': amount}
+        cart.extra_rows[self.identifier] = ExtraCartRow(instance)
+        cart.total += amount
+
+    def is_disabled(self, cart):
+        disabled_methods = ['courier-delivery', 'self-collection']
+        if cart.extra.get('shipping_modifier') in disabled_methods:
+            return True

@@ -40,3 +40,4 @@ docs/
 /alby/management/
 /alby/migrations/
 /phoneauth/migrations/
+/alby/templates/search

@@ -13,6 +13,7 @@ from cms.admin.placeholderadmin import PlaceholderAdminMixin, FrontendEditableAd
 # from shop.admin.defaults import customer
 from alby.admin import customer
 from shop.models.defaults.order import Order
+# from alby.models.order import Order
 from alby.admin.order import OrderAdmin as BaseOrderAdmin
 from shop.admin.order import PrintInvoiceAdminMixin
 from shop.admin.delivery import DeliveryOrderAdminMixin

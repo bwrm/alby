@@ -18,18 +18,16 @@ from shop.models.product import BaseProduct, BaseProductManager, CMSPageReferenc
 from shop.models.inventory import BaseInventory, AvailableProductMixin
 from alby.models.cart import Cart
 from shop.models.defaults.cart_item import CartItem
-from shop.models.order import BaseOrderItem
 from shop.models.defaults.delivery import Delivery
 from shop.models.defaults.delivery_item import DeliveryItem
 from shop.models.defaults.mapping import ProductPage, ProductImage
 from alby.models.address import BillingAddress, ShippingAddress
 from alby.models.customer import Customer
 from alby.models.discount import Discount
-from shop.models.defaults.order import Order
-from shop.models.defaults.order_item import OrderItem
 
 __all__ = ['Cart', 'CartItem', 'Order', 'OrderItem',
            'BillingAddress', 'ShippingAddress', 'Customer', ]
+
 
 class ProductQuerySet(TranslatableQuerySet, PolymorphicQuerySet):
     pass
