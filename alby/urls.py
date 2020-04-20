@@ -10,8 +10,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.http import HttpResponse
 from cms.sitemaps import CMSSitemap
 from alby.sitemap import ProductSitemap
-from alby.view import FacebookLogin
-from rest_framework.routers import DefaultRouter
+
 # from phone_verify.api import VerificationViewSet
 
 

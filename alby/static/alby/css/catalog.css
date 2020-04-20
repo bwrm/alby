@@ -1,0 +1,79 @@
+	.slider {
+        width: 100%;
+        margin: 10px auto;
+    }
+    .slick-slide {
+      margin: 0px 10px;
+    }
+    .slick-slide img {
+      width: 100%;
+	max-height: 500px;
+    }
+	.slider-nav  img {
+      width: 50%;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+    .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }
+    .slick-active {
+      opacity: .5;
+    }
+    .slick-current {
+      opacity: 1;
+    }
+	.tab-content-custom {
+		padding: 20px 0 20px 0;
+	}
+
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 0px solid #fff;
+  border-radius: 0rem;
+  max-width: 100%;
+  height: auto;
+}
+
+.freesampleInfoLink, .fabricInfo {
+    top: 5px;
+    right: 10px;
+    position: absolute;
+    z-index: 1;
+    width: 26px;
+    height: 26px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid #294057;
+    padding: 0;
+    background-color: #ffffff;
+    outline: none;
+}
+
+.fabricInfo .ask-info {
+    font-size: 14px;
+    font-family: 'pt_serifregular', serif;
+    margin-top: 3px;
+}
+.fabric-item__name {
+    margin-top: 5px;
+    text-transform: capitalize;
+}
+
+.modal-header {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 0.5rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(0.3rem - 1px);
+    border-top-right-radius: calc(0.3rem - 1px);
+}

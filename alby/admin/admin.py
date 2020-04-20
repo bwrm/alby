@@ -21,8 +21,9 @@ from adminsortable2.admin import SortableAdminMixin, PolymorphicSortableAdminMix
 from shop.admin.product import CMSPageAsCategoryMixin, UnitPriceMixin, ProductImageInline, InvalidateProductCacheMixin, CMSPageFilter
 from polymorphic.admin import (PolymorphicParentModelAdmin, PolymorphicChildModelAdmin,
                                PolymorphicChildModelFilter)
-from alby.models import Product, Commodity
-from alby.models import CommodityInventory, Lamel, Discount, LamelInventory
+from alby.models import Product, Commodity, SofaModel, SofaVariant
+from alby.models import CommodityInventory, Lamel, Discount, LamelInventory, Fabric, VariantImage
+from nested_inline.admin import NestedStackedInline, NestedModelAdmin, NestedTabularInline
 
 
 admin.site.site_header = "ALBY Administration"
@@ -36,6 +37,19 @@ class OrderAdmin(BaseOrderAdmin, PrintInvoiceAdminMixin, DeliveryOrderAdminMixin
 
 __all__ = ['customer']
 
+class VariantImageInline(NestedTabularInline):
+    model = VariantImage
+    fk_name = 'product'
+    extra = 1
+
+class SofaVariantInLine(NestedStackedInline):
+    model = SofaVariant
+    classes = ['collapse']
+    inlines = [VariantImageInline, ]
+    fk_name = 'product_model'
+    readonly_fields = ['product_code',]
+    can_delete = True
+    extra = 0
 
 class CommodityInventoryAdmin(admin.StackedInline):
     model = CommodityInventory
@@ -57,17 +71,14 @@ class CommodityAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
         ('product_name', 'slug'),
         ('product_code', 'unit_price'),
         'active',
-        'caption',
-        'manufacturer',
     ]
+    readonly_fields = ['product_code',]
     filter_horizontal = ['cms_pages']
     inlines = [ProductImageInline, CommodityInventoryAdmin]
     prepopulated_fields = {'slug': ['product_name']}
 
 
 @admin.register(Lamel)
-
-
 class LamelAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
                  CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin):
     base_model = Product
@@ -86,18 +97,65 @@ class LamelAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAd
             'fields': ['lamel_width', 'is_lamel', 'weight_by_hand', 'length', 'depth', 'weight'],
         }),
     )
+    readonly_fields = ['product_code',]
     filter_horizontal = ['cms_pages']
     inlines = [ProductImageInline, LamelInventoryAdmin]
     prepopulated_fields = {'slug': ['product_name']}
     save_as = True
 
-admin.site.register(Discount)
+@admin.register(Fabric)
+class FabricAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
+                     CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin):
+    base_model = Product
+    fieldsets = (
+        (None, {
+            'fields': [
+                ('product_name', 'slug'),
+                ('product_code', 'unit_price'),
+                ('active'),
+            ],
+        }),
+        (_("Translatable Fields"), {
+            'fields': ['caption', 'description'],
+        }),
+        (_("Properties"), {
+            'fields': [ 'composition', 'care', 'fabric_type'],
+        }),
+    )
+    readonly_fields = ['product_code',]
+    filter_horizontal = ['cms_pages']
+    inlines = [ProductImageInline]
+    prepopulated_fields = {'slug': ['product_name']}
+    save_as = True
 
+@admin.register(SofaModel)
+class SofaModelAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
+                 CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin, NestedModelAdmin):
+    base_model = Product
+    fieldsets = (
+        (None, {
+            'fields': [
+                ('product_name', 'slug'),
+            ],
+        }),
+        (_("Translatable Fields"), {
+            'fields': ['caption', 'description'],
+        }),
+        (_("Properties"), {
+            'fields': ['sofa_type'],
+        }),
+    )
+    filter_horizontal = ['cms_pages']
+    inlines = [ProductImageInline, SofaVariantInLine]
+    prepopulated_fields = {'slug': ['product_name']}
+    save_as = True
+
+admin.site.register(Discount)
 
 @admin.register(Product)
 class ProductAdmin(PolymorphicSortableAdminMixin, PolymorphicParentModelAdmin):
     base_model = Product
-    child_models = [Commodity, Lamel]
+    child_models = [Commodity, Lamel, SofaModel, Fabric]
     list_display = ['product_name', 'get_price', 'product_type', 'active']
     list_display_links = ['product_name']
     search_fields = ['product_name']

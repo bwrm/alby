@@ -24,10 +24,10 @@ from shop.models.defaults.mapping import ProductPage, ProductImage
 from alby.models.address import BillingAddress, ShippingAddress
 from alby.models.customer import Customer
 from alby.models.discount import Discount
+from shop.money import Money
+from filer.fields import image
 
-__all__ = ['Cart', 'CartItem', 'Order', 'OrderItem',
-           'BillingAddress', 'ShippingAddress', 'Customer', ]
-
+__all__ = ['Cart', 'CartItem', 'BillingAddress', 'ShippingAddress', 'Customer', ]
 
 class ProductQuerySet(TranslatableQuerySet, PolymorphicQuerySet):
     pass
@@ -38,6 +38,47 @@ class ProductManager(BaseProductManager, TranslatableManager):
     def get_queryset(self):
         qs = self.queryset_class(self.model, using=self._db)
         return qs.prefetch_related('translations')
+
+class ProductList(models.Model):
+    product_code = models.CharField(
+        _("Product model"),
+        max_length=255,
+        unique=True,
+    )
+    product_model = models.CharField(
+        _("Product model"),
+        max_length=255,
+        blank=True,
+    )
+    def is_unique_scu(self, scu):
+        scu = str(scu)
+        return ProductList.objects.filter(product_code=scu).count() == 0
+
+    def set_num_scu(self, scu, n):
+        scu = str(scu)
+        while len(scu) <= int(n):
+            scu = '0' + scu
+        return scu
+
+    def get_max_scu(self):
+        max_scu = ProductList.objects.aggregate(models.Max('product_code'))
+        try:
+            return int(max_scu['product_code__max'])
+        except:
+            return 1
+
+    def save(self, *args, **kwargs):
+        if not self.product_code:
+            max_scu = self.get_max_scu()
+            while True:
+                new_scu = max_scu + 1
+                if self.is_unique_scu(new_scu):
+                    self.product_code = self.set_num_scu(new_scu, 4)
+                    break
+        super(ProductList, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.product_code
 
 
 @python_2_unicode_compatible
@@ -51,7 +92,6 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
         _("Product Name"),
         max_length=255,
     )
-
     slug = models.SlugField(
         _("Slug"),
         unique=True,
@@ -74,6 +114,7 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
     images = models.ManyToManyField(
         'filer.Image',
         through=ProductImage,
+        blank=True
     )
 
     class Meta:
@@ -101,7 +142,6 @@ class ProductTranslation(TranslatedFieldsModel):
         related_name='translations',
         null=True,
     )
-
     caption = HTMLField(
         verbose_name=_("Caption"),
         blank=True,
@@ -109,13 +149,20 @@ class ProductTranslation(TranslatedFieldsModel):
         configuration='CKEDITOR_SETTINGS_CAPTION',
         help_text=_(
             "Short description used in the catalog's list view of products."),
-    )
+    ),
+    description=HTMLField(
+        verbose_name=_("Description"),
+        configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+        blank=True,
+        help_text=_(
+            "Full description used in the catalog's detail view of Smart Cards."),
+    ),
 
     class Meta:
         unique_together = [('language_code', 'master')]
 
 
-class Commodity(AvailableProductMixin, Product):
+class Commodity(AvailableProductMixin, Product, TranslatableModelMixin):
     """
     This Commodity model inherits from polymorphic Product, and therefore has to be redefined.
     """
@@ -124,13 +171,26 @@ class Commodity(AvailableProductMixin, Product):
         decimal_places=3,
         help_text=_("Net price for this product"),
     )
-
-    product_code = models.CharField(
-        _("Product code"),
-        max_length=255,
-        unique=True,
+    product_code = models.ForeignKey(
+        ProductList,
+        on_delete=models.CASCADE,
     )
-
+    multilingual = TranslatedFields(
+        description=HTMLField(
+            verbose_name=_("Description"),
+            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+            blank=True,
+            help_text=_(
+                "Full description used in the catalog's detail view of Smart Cards."),
+        ),
+        caption=HTMLField(
+            verbose_name=_("Caption"),
+            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+            blank=True,
+            help_text=_(
+                "Full description used in the catalog's detail view of Smart Cards."),
+        ),
+    )
     # controlling the catalog
     placeholder = PlaceholderField("Commodity Details")
     show_breadcrumb = True  # hard coded to always show the product's breadcrumb
@@ -162,15 +222,11 @@ class CommodityInventory(BaseInventory):
 
 @python_2_unicode_compatible
 class Lamel(AvailableProductMixin, Product):
-    multilingual = TranslatedFields(
-        description=HTMLField(
-            verbose_name=_("Description"),
-            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
-            help_text=_(
-                "Full description used in the catalog's detail view of Smart Cards."),
-        ),
+    product_code = models.ForeignKey(
+        ProductList,
+        on_delete=models.CASCADE,
+        blank=True,
     )
-
     unit_price = MoneyField(
         _("Unit price"),
         decimal_places=3,
@@ -178,7 +234,6 @@ class Lamel(AvailableProductMixin, Product):
     )
 
     LAM_WIDTH = (('38', '38 mm'), ('53', '53 mm'), ('63', '63 mm'), ('68', '68 mm'))
-
     lamel_width = models.CharField(
         _('width'),
         default=53,
@@ -218,14 +273,25 @@ class Lamel(AvailableProductMixin, Product):
         default=False,
         help_text=_("For enter lamel weight by hand"),
     )
+    multilingual = TranslatedFields(
+        description=HTMLField(
+            verbose_name=_("Description"),
+            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+            blank=True,
+            help_text=_(
+                "Full description used in the catalog's detail view of Smart Cards."),
+        ),
+        caption=HTMLField(
+            verbose_name=_("Caption"),
+            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+            blank=True,
+            help_text=_(
+                "Full description used in the catalog's detail view of Smart Cards."),
+        ),
+    )
 
     discont_scheme = models.ForeignKey(Discount, blank=True, null=True, on_delete=models.CASCADE)
 
-    product_code = models.CharField(
-        _("Product code"),
-        max_length=255,
-        blank=True,
-    )
 
     default_manager = ProductManager()
 
@@ -233,40 +299,7 @@ class Lamel(AvailableProductMixin, Product):
         verbose_name = _("Lamel")
         verbose_name_plural = _("Lamels")
 
-    def is_unique_scu(self, scu):
-        scu = str(scu)
-        try:
-            Lamel.objects.get(product_code=scu)
-            return False
-        except:
-            return True
-
-    def set_num_scu(self, scu, n):
-        scu = str(scu)
-        while len(scu) <= int(n):
-            scu = '0' + scu
-        return scu
-
-    def get_max_scu(self):
-        codes = Lamel.objects.all()
-        max_scu = 0
-        for code in codes:
-            code = int(code.product_code)
-            if code > max_scu:
-                max_scu = code
-        return max_scu
-
     def save(self, *args, **kwargs):
-        if not self.product_code or not self.is_unique_scu(self.product_code):
-            max_scu = int(self.get_max_scu())
-            while True:
-                new_scu = max_scu + 1
-                if self.is_unique_scu(new_scu):
-                    self.product_code = self.set_num_scu(new_scu, 4)
-                    break
-
-        # TODO: unique product_code
-
         if self.is_lamel and not self.weight_by_hand:
             m = 0.00075  # calculated empiric method
             vol = float(self.length) * float(self.lamel_width) * float(self.depth)
@@ -302,3 +335,172 @@ class LamelInventory(BaseInventory):
         validators=[MinValueValidator(0), MaxValueValidator(100)],
         help_text=_("Available quantity in stock")
     )
+
+class Fabric(Product):
+
+    fabric_name = models.CharField(
+        _("Fabric name"),
+        max_length=150,
+        blank=True,
+    )
+    # common product fields
+    unit_price = MoneyField(
+        _("Price per meter"),
+        decimal_places=2,
+        help_text=_("Net price for this product by meter"),
+    )
+    # product properties
+    FABRIC_TYPE = [
+        ('leath','leather'),
+        ('velv', 'velvet'),
+        ('wool','wool'),
+    ]
+    fabric_type = models.CharField(
+        _("Fabric type"),
+        choices=FABRIC_TYPE,
+        max_length=15,
+    )
+
+    product_code = models.ForeignKey(
+        ProductList,
+        on_delete=models.CASCADE,
+        blank=True,
+    )
+    composition = models.CharField(
+        _("Comosition of fabric"),
+        max_length=255,
+        unique=False,
+    )
+    care = models.CharField(
+        _("Recommended wash care"),
+        max_length=255,
+        unique=False,
+    )
+    multilingual = TranslatedFields(
+        description=HTMLField(
+            verbose_name=_("Description"),
+            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+            blank=True,
+            help_text=_(
+                "Full description used in the catalog's detail view of Smart Cards."),
+        ),
+        caption=HTMLField(
+            verbose_name=_("Caption"),
+            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+            blank=True,
+            help_text=_(
+                "Full description used in the catalog's detail view of Smart Cards."),
+        ),
+    )
+
+    default_manager = ProductManager()
+
+    class Meta:
+        verbose_name = _("Fabric")
+        verbose_name_plural = _("Fabrics")
+
+    def get_price(self, request):
+        return self.unit_price
+
+class SofaModel(Product):
+    sofa_type = models.CharField(
+        _("Sofa Type"),
+        choices=[(t, t) for t in (_('Straight'), _('Corner'), _('2 seat'), _('3 seat'), _('Sofabed'), _('Chair'))],
+        max_length=9,
+    )
+    multilingual = TranslatedFields(
+        description=HTMLField(
+            verbose_name=_("Description"),
+            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+            blank=True,
+            help_text=_(
+                "Full description used in the catalog's detail view of Smart Cards."),
+        ),
+        caption=HTMLField(
+            verbose_name=_("Caption"),
+            configuration='CKEDITOR_SETTINGS_DESCRIPTION',
+            blank=True,
+            help_text=_(
+                "Full description used in the catalog's detail view of Smart Cards."),
+        ),
+    )
+    # other fields to map the specification sheet
+
+    default_manager = ProductManager()
+
+    lookup_fields = ('product_name__icontains',)
+
+    def get_price(self, request):
+        aggregate = self.variants.aggregate(models.Min('unit_price'))
+        return Money(aggregate['unit_price__min'])
+
+    def is_in_cart(self, cart, watched=False, **kwargs):
+        try:
+            product_code = kwargs['product_code']
+        except KeyError:
+            return
+        cart_item_qs = CartItem.objects.filter(cart=cart, product=self)
+        for cart_item in cart_item_qs:
+            if cart_item.product_code == product_code:
+                return cart_item
+
+    def get_product_variant(self, **kwargs):
+        try:
+            product_code = kwargs.get('product_code')
+            #added new model for the whole product list
+            id_var = ProductList.objects.get(product_code=product_code).id
+            return self.variants.get(product_code=id_var)
+        except SofaVariant.DoesNotExist as e:
+            raise SofaModel.DoesNotExist(e)
+
+
+class SofaVariant(models.Model):
+
+    class Meta:
+        ordering = ('unit_price',)
+
+    product_model = models.ForeignKey(
+        SofaModel,
+        related_name='variants',
+        on_delete=models.CASCADE,
+    )
+    product_code = models.ForeignKey(
+        ProductList,
+        on_delete=models.CASCADE,
+        blank=True,
+    )
+    images = models.ManyToManyField(
+        'filer.Image',
+        through='VariantImage',
+        )
+
+    unit_price = MoneyField(_("Unit price"), blank=True)
+
+    fabric = models.ForeignKey(
+        Fabric,
+        on_delete=models.CASCADE,
+        blank=True,
+    )
+    def get_availability(self, request, **kwargs):
+        return True
+    def __str__(self):
+        return self.fabric.fabric_name
+
+    def delete(self, using=None, keep_parents=False):
+        ProductList.objects.filter(product_code=self.product_code).delete()
+        super(SofaVariant, self).delete()
+
+class VariantImage(models.Model):
+    image = image.FilerImageField(on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        SofaVariant,
+        on_delete=models.CASCADE,
+        blank=True,
+    )
+    order = models.SmallIntegerField(default=0)
+    class Meta:
+        abstract = False
+        verbose_name = _("Product Image")
+        verbose_name_plural = _("Product Images")
+        ordering = ['order']
+

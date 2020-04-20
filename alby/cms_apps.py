@@ -7,13 +7,14 @@ from cms.apphook_pool import apphook_pool
 from cms.cms_menus import SoftRootCutter
 from menus.menu_pool import menu_pool
 from shop.cms_apphooks import CatalogListCMSApp, CatalogSearchCMSApp, OrderApp, PasswordResetApp
-
+from alby.serializers.product import CustomizedProductSerializer
+from alby.views import UpdateDataView
 
 class CatalogListApp(CatalogListCMSApp):
     def get_urls(self, page=None, language=None, **kwargs):
         from shop.search.views import CMSPageCatalogWrapper
         from shop.views.catalog import AddToCartView, ProductRetrieveView
-        from alby.serializers import CatalogSearchSerializer, RebateAddToCartSerializer
+        from alby.serializers import CatalogSearchSerializer, RebateAddToCartSerializer, AddSofaToCartSerializer, UpdateDataSerialiser
 
         return [
             url(r'^$', CMSPageCatalogWrapper.as_view(
@@ -22,6 +23,16 @@ class CatalogListApp(CatalogListCMSApp):
             url(r'^(?P<slug>[\w-]+)/add-to-cart', AddToCartView.as_view()),
             url(r'^(?P<slug>[\w-]+)/get-rebate', AddToCartView.as_view(
                 serializer_class=RebateAddToCartSerializer,
+            )),
+            url(r'^(?P<slug>[\w-]+)/add-sofa-to-cart', AddToCartView.as_view(
+                serializer_class=AddSofaToCartSerializer,
+            )),
+            url(r'^(?P<slug>[\w-]+)/update-small-data', UpdateDataView.as_view(
+                serializer_class=UpdateDataSerialiser,
+            )),
+            url(r'^/divany/(?P<slug>[\w-]+)', ProductRetrieveView.as_view(
+                use_modal_dialog=False,
+                serializer_class=CustomizedProductSerializer,
             )),
             url(r'^(?P<slug>[\w-]+)', ProductRetrieveView.as_view(
                 use_modal_dialog=False,

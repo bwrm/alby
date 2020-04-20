@@ -13,11 +13,6 @@
 
 {% block add-product-to-cart-panel %}{% with inline_styles=instance.inline_styles %}
 <div class="card {{ card_css_classes }} {{ instance.css_classes }}"{% if inline_styles %} style="{{ inline_styles }}"{% endif %} shop-add-to-cart="{% block add-to-cart-url %}{{ product.get_absolute_url }}/get-rebate{% endblock %}">
-
-	<div class="card-header">
-	{% blocktrans with product_name=product.product_name %}Add {{ product_name }} to cart{% endblocktrans %}
-	</div>
-
 	{% block add-product-to-cart-body %}
 	<div class="card-body pb-0">
 		<div class="d-flex justify-content-between">
@@ -81,31 +76,3 @@
 
 </div>
 {% endwith %}{% endblock add-product-to-cart-panel %}
-
-{% block add-to-cart-modal-dialog %}
-<script id="AddToCartModalDialog.html" type="text/ng-template">
-	{% block add-to-cart-modal-header %}
-	<div class="modal-header">
-		<h4 class="modal-title" ng-bind="context.modalTitle"></h4>
-	</div>
-	{% endblock add-to-cart-modal-header %}
-
-	{% block add-to-cart-modal-body %}
-	<div class="modal-body" ng-cloak>
-		{% verbatim %}{{ context.quantity|number }} &times; {% endverbatim %}{{ product.product_name }}
-		{% trans "for {{ context.unit_price }} per piece: {{ context.subtotal }}" %}
-	</div>
-	{% endblock add-to-cart-modal-body %}
-
-	{% block add-to-cart-modal-footer %}
-		{% page_url "shop-cart" as shop_cart_url %}{% if not shop_cart_url %}{% url "shop-cart" as shop_cart_url %}{% endif %}
-	<div class="modal-footer">
-		{% if shop_cart_url %}
-		<button class="btn btn-primary" ng-click="proceed('{{ shop_cart_url }}')">{% trans "Show Cart" %}</button>
-		{% endif %}
-		<button class="btn btn-primary" ng-click="proceed('{{ request.current_page.get_absolute_url }}')">{% trans "Continue Shopping" %}</button>
-		<button class="btn btn-warning" ng-click="cancel()">{% trans "Cancel" %}</button>
-	</div>
-	{% endblock add-to-cart-modal-footer %}
-</script>
-{% endblock add-to-cart-modal-dialog %}

@@ -1,0 +1,186 @@
+{% extends "alby/catalog/product-detail.html" %}
+{% load i18n cms_tags thumbnail static sekizai_tags sass_tags alby_tags %}
+
+{% block main-content %}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+{% addtoblock "js" %}<script src="{% static 'node_modules/ui-bootstrap4/dist/ui-bootstrap-tpls.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% add_data "ng-requires" "ui.bootstrap" %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% addtoblock "js" %}<script src="{% static 'shop/js/utils.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'alby/js/catalog.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{% static 'alby/css/catalog.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{% static 'alby/plugins/slick/slick.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{% static 'alby/plugins/slick/slick-theme.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+{% add_data "ng-requires" "django.shop.catalog" %}
+<div class="container" shop-add-to-cart="{% block add-to-cart-url %}{{ product.get_absolute_url }}/add-sofa-to-cart{% endblock %}">
+	<div class="row product-detail" id="#top">
+		<div class="col-lg-7">
+				<slick ng-if="dataLoaded" class="slider" dots=true infinite=true speed=300 slides-to-show=1 touch-move=true slides-to-scroll=1 arrows=false lazyload="ondemand" init-onload='true' data="dataLoaded">
+					<div ng-repeat="img in context.extra.img">
+					  <img src="{% verbatim %}{{ img[0] }}{% endverbatim %}">
+					</div>
+				</slick>
+		</div>
+		<div class="col-xs-12 col-md-5">
+			<h3>{% render_model product "product_name" %}</h3>
+				<section id="test">
+				</section>
+			<table class="table table-bordered">
+				<tbody class="table-striped">
+					<tr>
+						<td>{% trans "Length" %}</td>
+						<td>{{ product.length }} {% trans "mm" %}</td>
+					</tr>
+					<tr>
+						<td>{% trans "Width" %}</td>
+						<td align="right">{{ product.lamella_width }} {% trans "mm" %}</td>
+					</tr>
+				</tbody>
+			</table>
+			<h1>{% verbatim %}{{context.unit_price}}{% endverbatim %}</h1>
+			<!-- include "Add to Cart" dialog box -->
+			<div class="d-flex flex-column">
+			<div class="flex-grow-1 text-muted text-right mb-3">
+				<a href="#fabric"><button value="Fabric" class="btn btn-primary">Выбрать ткань</button></a>
+			</div>
+			</div>
+			<div class="d-flex flex-column">
+			<div class="card-body pb-0">
+		<div class="d-flex justify-content-between">
+		{% block available-quantity-in-stock %}{% endblock %}
+		{% block change-purchasing-quantity %}
+		{% endblock %}
+		{% block product-unit-price %}
+			<div class="d-flex flex-column">
+				<span class="label">{% trans "Unit Price" %}</span>
+				<div class="lead mt-1" ng-cloak>
+				{% verbatim %}{{ context.unit_price }}{% endverbatim %}
+				</div>
+			</div>
+		{% endblock %}
+		{% block purchase-item-subtotal %}
+			<div class="d-flex flex-column">
+				<span class="label">{% trans "Subtotal" %}</span>
+				<div class="lead mt-1 font-weight-bold" ng-cloak>
+				{% verbatim %}{{ context.subtotal }}<sup>*</sup>{% endverbatim %}
+				</div>
+			</div>
+		{% endblock %}
+		</div>
+		<div class="d-flex justify-content-between">
+		{% block limited-availability %}{% endblock %}
+		{% block unmentioned-costs %}
+			<div class="flex-grow-1 text-muted text-right mb-3">
+				<small><sup>*</sup>&nbsp{% trans "incl. VAT, plus shipping costs." %}</small>
+			</div>
+		{% endblock %}
+		</div>
+	</div>
+	{% block add-product-to-cart-footer %}
+		<div class="card-footer bg-white">
+			<div class="d-flex flex-column flex-lg-row justify-content-between">
+				<button class="btn btn-secondary m-1" ng-disabled="context.is_in_cart" ng-click="do(addToCart('{% url "shop:watch-list" %}'))">
+					{% trans "Watch product" %}
+					<i class="fa" ng-class="context.is_in_cart ? 'fa-heart' : 'fa-heart-o'"></i>
+				</button>
+			{% url "shop:cart-list" as cart_endpoint %}{% trans "The product has been successfully placed in the shopping cart:" as modal_title %}
+				<button class="btn btn-primary m-1" ng-disabled="!context.availability.quantity" ng-click="do(addToCart('{{ cart_endpoint }}')).then(emit('shop.cart.change'))">
+					{% trans "Add to cart" %}
+					<i class="fa fa-cart-arrow-down"></i>
+				</button>
+			</div>
+			{% if request.session.is_empty %}
+			<small class="text-muted m-1">{% block cookie-disclaimer %}
+				{% blocktrans %}By adding a product to the cart you are giving consent to cookies being used.{% endblocktrans %}
+			{% endblock %}</small>
+			{% endif %}
+		</div>
+	{% endblock add-product-to-cart-footer %}
+			</div>
+		</div>
+	</div>
+    	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div class="tabbable tabs-below" ng-init="selectedTab = 1;">
+				<ul class="nav nav-tabs nav-justified" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}">
+					<li class="uib-tab nav-item ng-scope ng-isolate-scope" ng-class="{active: selectedTab == 1}" heading="{% trans "Информация о товаре" %}">
+						<a href="" id="fabric" ng-click="selectedTab = 1;" class="nav-link ng-binding active" ng-class="{active: selectedTab == 1}">
+							{% trans "Ткани" %}
+						</a>
+					</li>
+					<li class="uib-tab nav-item ng-scope ng-isolate-scope" ng-class="{active: selectedTab == 2,}">
+						<a href="" ng-click="selectedTab = 2;" class="nav-link ng-binding" ng-class="{active: selectedTab == 2}">
+                            {% trans "Характеристики" %}
+                        </a>
+					</li>
+					<li class="uib-tab nav-item ng-scope ng-isolate-scope" ng-class="{active: selectedTab == 3,}">
+						<a href="" ng-click="selectedTab = 3;" class="nav-link ng-binding" ng-class="{active: selectedTab == 3}">
+							{% trans "Информация" %}
+                        </a>
+					</li>
+				</ul>
+				<div class="tab-content" ng-show="selectedTab == 1">
+					<div class="tab-content-custom">
+						<br/>
+						{% for sofa in product.variants.all %}
+						{#fabric thumbnails#}
+							<div class="figure text-center">
+								<div class="shop-list-item">
+									<button class="cursor fabricInfo" ng-click="updateData('{{ product.get_absolute_url }}/update-small-data', '{{sofa.fabric.product_code}}')" data-toggle="modal" data-target="#exampleModalCenter"><p class="ask-info">i</p></button>
+									<a href="#top" ng-model="context.product_code" ng-click="updateContext('{{ sofa.product_code }}')">
+										<img src="{{ sofa.fabric.sample_image.thumbnails|get_item:'admin_sidebar_preview' }}" class='mx-auto img-thumbnail' width="auto" height="auto" />
+									</a>
+								</div>
+								<span class="fabric-item__name">{{sofa.fabric.fabric_name}}</span>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+
+				<div class="tab-content" ng-show="selectedTab == 2">
+					<div class="tab-content-custom">
+						{{ product.description|safe }}
+					</div>
+				</div>
+				<div class="tab-content" ng-show="selectedTab == 3">
+					<div class="tab-content-custom">
+						{{ product.caption|safe }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		  <div>
+			  <h3 class="text-uppercase">{% verbatim %}{{ dataSmall.fabric_name }}{% endverbatim %}</h3>
+			  <p>{% verbatim %}{{ dataSmall.description }}{% endverbatim %}</p>
+			  <p><strong>{% trans "Fabric type" %}:</strong>{% verbatim %}{{ dataSmall.fabric_type }}{% endverbatim %}</p>
+			  <p><strong>{% trans "Composition" %}:</strong>{% verbatim %}{{ dataSmall.composition }}{% endverbatim %}</p>
+			  <p><strong>{% trans "Recommended wash care" %}: </strong>{% verbatim %}{{ dataSmall.care }}{% endverbatim %}</p>
+		  </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+{% endblock main-content %}
+{% block endblock %}
+{% addtoblock "js" %}<script src="{% static 'alby/plugins/slick/slick.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'alby/plugins/slick/angular/slick.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% add_data "ng-requires" "slick" %}
+{% endblock %}

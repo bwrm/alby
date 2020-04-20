@@ -9,13 +9,19 @@
 {% endif %}
 {% url "shop:cart-fetch-dropdown" as endpoint %}
 
-<li class="nav-item{% if has_dropdown %} dropdown{% endif %} {{ item_class }}" {% if has_dropdown %}uib-dropdown is-open="dropdownOpen"{% else %}uib-tooltip="{{ tooltip }}" tooltip-placement="left"{% endif %} shop-dropdown-cart="{{ endpoint }}">
+<div class="nav-item{% if has_dropdown %} dropdown{% endif %} {{ item_class }}" {% if has_dropdown %}uib-dropdown is-open="dropdownOpen"{% else %}uib-tooltip="{{ tooltip }}" tooltip-placement="left"{% endif %} shop-dropdown-cart="{{ endpoint }}">
 	<a class="nav-link"{% if shop_cart_url %} href="{{ shop_cart_url }}"{% endif %} title="{{ tooltip }}">
 	{% block carticon %}
-		<i class="fa fa-shopping-cart fa-fw mr-1"></i>
-		<ng-pluralize count="cart.num_items" when="{'1': '{% trans "1 Item" context "cart icon" %}', 'other': '{% trans "{} Items" context "cart icon" %}'}"></ng-pluralize>
+		<div class="cart_icon"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918704/cart.png" alt="">
+			<div class="cart_count">
+				<span>
+					{% verbatim %}{{ cart.num_items }}{% endverbatim %}
+				</span>
+			</div>
+		</div>
 	{% endblock %}
 	</a>
+		<div class="cart_price mobile_hide_2">{% verbatim %}{{ cart.total }}{% endverbatim %}</div>
 	{% if has_dropdown %}
 	<div uib-dropdown-menu class="dropdown-menu dropdown-menu-right" role="menu">
 		{% block dropdown-menu %}
@@ -43,7 +49,7 @@
 		</div>
 	</div>
 	{% endif %}
-</li>
+</div>
 
 <script id="{{ endpoint }}" type="application/json">{{ cart_as_json }}</script>
 

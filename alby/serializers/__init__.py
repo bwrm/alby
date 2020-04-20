@@ -1,3 +1,3 @@
 from .serializers import CatalogSearchSerializer, ProductSearchSerializer
-from .catalog import RebateAddToCartSerializer
+from .catalog import RebateAddToCartSerializer, AddSofaToCartSerializer, UpdateDataSerialiser
 from .product_summary import ProductSummarySerializer

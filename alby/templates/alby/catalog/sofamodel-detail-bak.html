@@ -1,0 +1,163 @@
+{% extends "alby/catalog/product-detail.html" %}
+{% load i18n cms_tags thumbnail static sekizai_tags sass_tags %}
+
+{% block main-content %}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+{% addtoblock "js" %}<script src="{% static 'node_modules/ui-bootstrap4/dist/ui-bootstrap-tpls.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% add_data "ng-requires" "ui.bootstrap" %}
+{% addtoblock "js" %}<script src="{% static 'shop/js/utils.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'shop/js/catalog.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+
+{% addtoblock "css" %}<link href="{% static 'alby/plugins/OwlCarousel2-2.2.1/single_styles.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+{% addtoblock "css" %}<link href="{% static 'alby/plugins/OwlCarousel2-2.2.1/single_responsive.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+{% add_data "ng-requires" "django.shop.catalog" %}
+<div class="container" shop-add-to-cart="{% block add-to-cart-url %}{{ product.get_absolute_url }}/add-sofa-to-cart{% endblock %}">
+	<div class="row product-detail">
+		<div class="col-lg-7">
+			<div class="single_product_pics">
+				<div class="row">
+					<div class="col-lg-3 thumbnails_col order-lg-1 order-2">
+						<div class="single_product_thumbnails">
+							<ul>
+								<li class="active" ng-repeat="imgx in context.extra.img"><img id="" src="{% verbatim %}{{ imgx[1] }}{% endverbatim %}" alt=""/>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-9 image_col order-lg-2 order-1">
+						<div class="single_product_image">
+							<img id="selectedImg" class="single_product_image_background" src="{% verbatim %}{{ context.extra.img[0][0] }}{% endverbatim %}" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-5">
+			<h3>{% render_model product "product_name" %}</h3>
+			{% include "alby/catalog/product_slider.html"  %}
+			<table class="table table-bordered">
+				<tbody class="table-striped">
+					<tr>
+						<td>{% trans "Length" %}</td>
+						<td>{{ product.length }} {% trans "mm" %}</td>
+					</tr>
+					<tr>
+						<td>{% trans "Width" %}</td>
+						<td align="right">{{ product.lamella_width }} {% trans "mm" %}</td>
+					</tr>
+				</tbody>
+			</table>
+			<h1>{% verbatim %}{{context.unit_price}}{% endverbatim %}</h1>
+			<!-- include "Add to Cart" dialog box -->
+			<div class="d-flex flex-column">
+				<label for="product_code">{% trans "Type" %}</label>
+				<select class="form-control-nav" name="product_code" ng-model="context.product_code" ng-model-options="{{ ADD2CART_NG_MODEL_OPTIONS }}" ng-change="updateContext()" >
+					{% for sofa in product.variants.all %}
+						<option value="{{ sofa.product_code }}">
+							{% verbatim %}{{context.extra.fabric}}{% endverbatim %}
+						</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="d-flex flex-column">
+			<div class="card-body pb-0">
+		<div class="d-flex justify-content-between">
+		{% block available-quantity-in-stock %}{% endblock %}
+		{% block change-purchasing-quantity %}
+			<div class="d-flex flex-column w-25">
+				<label for="quantity">{% trans "Quantity" %}</label>
+				<div class="form-group">
+					<input class="form-control" value="1" name="quantity" type="number" min="1" ng-model="context.quantity" ng-model-options="{{ ADD2CART_NG_MODEL_OPTIONS }}" ng-change="updateContext()" />
+				</div>
+			</div>
+		{% endblock %}
+		{% block product-unit-price %}
+			<div class="d-flex flex-column">
+				<span class="label">{% trans "Unit Price" %}</span>
+				<div class="lead mt-1" ng-cloak>
+				{% verbatim %}{{ context.unit_price }}{% endverbatim %}
+				</div>
+			</div>
+		{% endblock %}
+		{% block purchase-item-subtotal %}
+			<div class="d-flex flex-column">
+				<span class="label">{% trans "Subtotal" %}</span>
+				<div class="lead mt-1 font-weight-bold" ng-cloak>
+				{% verbatim %}{{ context.subtotal }}<sup>*</sup>{% endverbatim %}
+				</div>
+			</div>
+		{% endblock %}
+		</div>
+		<div class="d-flex justify-content-between">
+		{% block limited-availability %}{% endblock %}
+		{% block unmentioned-costs %}
+			<div class="flex-grow-1 text-muted text-right mb-3">
+				<small><sup>*</sup>&nbsp;{% trans "incl. VAT, plus shipping costs." %}</small>
+			</div>
+		{% endblock %}
+		</div>
+	</div>
+				{% block add-product-to-cart-footer %}
+	<div class="card-footer bg-white">
+		<div class="d-flex flex-column flex-lg-row justify-content-between">
+			<button class="btn btn-secondary m-1" ng-disabled="context.is_in_cart" ng-click="do(addToCart('{% url "shop:watch-list" %}'))">
+				{% trans "Watch product" %}
+				<i class="fa" ng-class="context.is_in_cart ? 'fa-heart' : 'fa-heart-o'"></i>
+			</button>
+		{% url "shop:cart-list" as cart_endpoint %}{% trans "The product has been successfully placed in the shopping cart:" as modal_title %}
+			<button class="btn btn-primary m-1" ng-disabled="!context.availability.quantity" ng-click="{% if use_modal_dialog %}do(openModal('{{ modal_title }}')).then(addToCart('{{ cart_endpoint }}')).then(redirectTo()){% else %}do(addToCart('{{ cart_endpoint }}')).then(emit('shop.cart.change')){% endif %}">
+				{% trans "Add to cart" %}
+				<i class="fa fa-cart-arrow-down"></i>
+			</button>
+		</div>
+		{% if request.session.is_empty %}
+		<small class="text-muted m-1">{% block cookie-disclaimer %}
+			{% blocktrans %}By adding a product to the cart you are giving consent to cookies being used.{% endblocktrans %}
+		{% endblock %}</small>
+		{% endif %}
+	</div>
+	{% endblock add-product-to-cart-footer %}
+			</div>
+		</div>
+	</div>
+    	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div class="tabbable tabs-below" ng-init="selectedTab = 1;">
+				<ul class="nav nav-tabs nav-justified" ng-class="{'nav-stacked': vertical, 'nav-justified': justified}">
+					<li class="uib-tab nav-item ng-scope ng-isolate-scope" ng-class="{active: selectedTab == 1}" heading="{% trans "Информация о товаре" %}">
+						<a href="" ng-click="selectedTab = 1;" class="nav-link ng-binding active" ng-class="{active: selectedTab == 1}">
+                            {% trans "Информация о товаре" %}
+                        </a>
+					</li>
+					<li class="uib-tab nav-item ng-scope ng-isolate-scope" ng-class="{active: selectedTab == 2,}">
+						<a href="" ng-click="selectedTab = 2;" class="nav-link ng-binding" ng-class="{active: selectedTab == 2}">
+                            {% trans "Технические характеристики" %}
+                        </a>
+					</li>
+				</ul>
+
+				<div class="tab-content" ng-show="selectedTab == 1">
+					<div style="padding: 20px 0 20px 0;">
+						{{ product.caption|safe }}
+					</div>
+				</div>
+				<div class="tab-content" ng-show="selectedTab == 2">
+					<div style="padding: 20px 0 20px 0;">
+						{{ product.description|safe }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock main-content %}
+{% block endblock %}
+{% endblock %}
+
+
+
+
+
+

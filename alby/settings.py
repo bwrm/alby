@@ -127,6 +127,7 @@ INSTALLED_APPS = [
     'haystack',
     'shop',
     'alby',
+    'nested_inline'
 ]
 
 MIDDLEWARE = [
@@ -449,11 +450,14 @@ THUMBNAIL_PROCESSORS = (
 CMS_TEMPLATES = [
     ('alby/pages/default.html', _("Default Page")),
 ]
-
+# TODO: remove on dev
 CMS_CACHE_DURATIONS = {
-    'content': 600,
-    'menus': 3600,
-    'permissions': 86400,
+    'content': 0,
+    'menus': 0,
+    'permissions': 0,
+    # 'content': 600,
+    # 'menus': 3600,
+    # 'permissions': 86400,
 }
 
 CMS_PERMISSION = True

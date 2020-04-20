@@ -22,3 +22,4 @@ class alby(AppConfig):
             os.makedirs(settings.COMPRESS_ROOT)
         as_i18n = " as I18N"
         self.logger.info("Running as polymorphic{}".format(as_i18n))
+        import alby.signals
