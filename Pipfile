@@ -16,8 +16,8 @@ django-filter = "*"
 django-haystack = "*"
 drf-haystack = "*"
 django-parler = "*"
-e007892 = {file = "https://github.com/jrief/django-parler-rest/archive/deserialize-TranslatedField.zip"}
-djangorestframework = "==3.8.2"
+django-parler-rest = "*"
+djangorestframework = "*"
 django-rest-auth = "*"
 django_polymorphic = "*"
 django-admin-sortable2 = "*"
@@ -29,10 +29,8 @@ phonenumbers = "*"
 djangocms-bootstrap = "*"
 elasticsearch = "<1.8"
 libsass = "*"
-b26de6a = {file = "https://github.com/awesto/django-shop/archive/releases/1.1.x.zip"}
-sqlite3 = "*"
+django-shop = "<1.2"
 django-phone-field = "*"
-3-82 = "*"
 
 [dev-packages]
 tox = "*"

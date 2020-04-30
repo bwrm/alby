@@ -150,7 +150,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'alby.urls'
 
-WSGI_APPLICATION = 'wsgi.application'
+#WSGI_APPLICATION = 'wsgi.application'
 
 
 #############################################
