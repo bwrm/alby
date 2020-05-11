@@ -2,25 +2,14 @@
 {% load i18n cms_tags thumbnail static sekizai_tags sass_tags alby_tags %}
 
 {% block main-content %}
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-{% addtoblock "js" %}<script src="{% static 'node_modules/ui-bootstrap4/dist/ui-bootstrap-tpls.js' %}" type="text/javascript"></script>{% endaddtoblock %}
-{% add_data "ng-requires" "ui.bootstrap" %}
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-{% addtoblock "js" %}<script src="{% static 'shop/js/utils.js' %}" type="text/javascript"></script>{% endaddtoblock %}
-{% addtoblock "js" %}<script src="{% static 'alby/js/catalog.js' %}" type="text/javascript"></script>{% endaddtoblock %}
-{% addtoblock "css" %}<link href="{% static 'alby/css/catalog.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
-{% addtoblock "css" %}<link href="{% static 'alby/plugins/slick/slick.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
-{% addtoblock "css" %}<link href="{% static 'alby/plugins/slick/slick-theme.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
-{% add_data "ng-requires" "django.shop.catalog" %}
 <div class="container" shop-add-to-cart="{% block add-to-cart-url %}{{ product.get_absolute_url }}/add-sofa-to-cart{% endblock %}">
 	<div class="row product-detail" id="#top">
 		<div class="col-lg-7">
-				<slick ng-if="dataLoaded" class="slider" dots=true infinite=true speed=300 slides-to-show=1 touch-move=true slides-to-scroll=1 arrows=false lazyload="ondemand" init-onload='true' data="dataLoaded">
-					<div ng-repeat="img in context.extra.img">
-					  <img src="{% verbatim %}{{ img[0] }}{% endverbatim %}">
-					</div>
-				</slick>
+			<slick ng-if="dataLoaded" class="slider" dots=true infinite=true speed=300 slides-to-show=1 touch-move=true slides-to-scroll=1 arrows=false lazyload="ondemand" init-onload='true' data="dataLoaded">
+				<div ng-repeat="img in context.extra.img">
+				  <img src="{% verbatim %}{{ img[0] }}{% endverbatim %}">
+				</div>
+			</slick>
 		</div>
 		<div class="col-xs-12 col-md-5">
 			<h3>{% render_model product "product_name" %}</h3>
@@ -179,8 +168,4 @@
 
 </div>
 {% endblock main-content %}
-{% block endblock %}
-{% addtoblock "js" %}<script src="{% static 'alby/plugins/slick/slick.js' %}" type="text/javascript"></script>{% endaddtoblock %}
-{% addtoblock "js" %}<script src="{% static 'alby/plugins/slick/angular/slick.js' %}" type="text/javascript"></script>{% endaddtoblock %}
-{% add_data "ng-requires" "slick" %}
-{% endblock %}
+

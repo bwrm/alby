@@ -5,7 +5,8 @@
 
 {% block head %}
 	{{ block.super }}
-	{% addtoblock "css" %}<link href="{% sass_src 'alby/css/default.scss' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+	{% addtoblock "css" %}<link href="{% static 'alby/css/default.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+
 {% endblock head %}
 
 {% block header %}

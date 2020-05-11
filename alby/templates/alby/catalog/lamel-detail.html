@@ -6,14 +6,14 @@
 {% thumbnail product.images.first 250x250 crop as thumb %}
 <div class="container">
 	<div class="row product-detail">
-		<div class="col-xs-12 col-md-5">
-			<bsp-scrollpanel>
-				<ul>{% for img in product.images.all %}
-					<li><img src="{{ img.url }}" alt="{{ product.product_name }}" /></li>
-				{% endfor %}</ul>
-			</bsp-scrollpanel>
-		</div>
 		<div class="col-xs-12 col-md-7">
+			<div class="product-slider">
+				{% for img in product.images.all %}
+					<div><img src="{{ img.url }}" alt="{{ product.product_name }}" /></div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-5">
 			<h3>{% render_model product "product_name" %}</h3>
 			<table class="table table-bordered">
 				<tbody class="table-striped">
@@ -39,8 +39,9 @@
 					{% endif %}
 				</tbody>
 			</table>
-		<h2>{{ product.unit_price }}*</h2>
-		<h6>{% trans "* Price depends on order quantity. For get price enter quantity below" %}</h6>
+
+		<h2>{{ product.unit_price }} Br/шт</h2>
+		<small>{% trans "* Price depends on order quantity. For get price enter quantity below" %}</small>
 			<!-- include "Add to Cart" dialog box -->
 			{% include "alby/catalog/prod-add2cart.html" with card_css_classes="mb-3" %}
 		</div>
@@ -75,5 +76,17 @@
 			</div>
 		</div>
 	</div>
-
+  <script type="text/javascript">
+    $(document).ready(function(){
+    jQuery('.product-slider').slick({
+        slide: 'div',
+        arrows: true,
+        lazyLoad: 'ondemand',
+        fade: true,
+		touchMove: true,
+		infinite:true,
+		dots: true,
+    	});
+    });
+  </script>
 {% endblock main-content %}

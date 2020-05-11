@@ -29,7 +29,6 @@ djangoShopModule.directive('shopAddToCart', ['$http', '$log', function($http, $l
 		link: function(scope, element, attrs) {
 			if (!attrs.shopAddToCart)
 				throw new Error("Directive shop-add-to-cart must point onto an URL");
-
 			// load initial context
 			$http.get(attrs.shopAddToCart).then(function(response) {
 				scope.context = response.data;

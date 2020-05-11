@@ -31,6 +31,8 @@ elasticsearch = "<1.8"
 libsass = "*"
 django-shop = "<1.2"
 django-phone-field = "*"
+django-nested-inline = "*"
+psycopg2 = "*"
 
 [dev-packages]
 tox = "*"
