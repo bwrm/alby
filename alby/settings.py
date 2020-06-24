@@ -168,11 +168,13 @@ PHONE_VERIFICATION = PV
 
 LANGUAGE_CODE = 'ru'
 
-USE_I18N = False
+USE_I18N = True
+
+prefix_default_language = False
 
 LANGUAGES = [
     ('ru', "ru"),
-    ('en', "en"),
+#    ('en', "en"),
 ]
 
 PARLER_DEFAULT_LANGUAGE = LANGUAGE_CODE
@@ -180,16 +182,17 @@ PARLER_DEFAULT_LANGUAGE = LANGUAGE_CODE
 PARLER_LANGUAGES = {
     1: [
         {'code': 'ru'},
-        {'code': 'en'},
+#        {'code': 'en'},
     ],
     'default': {
-        'fallbacks': ['ru', 'en'],
+        'fallbacks': ['ru', ],
     },
 }
 
 CMS_LANGUAGES = {
     'default': {
-        'fallbacks': ['ru', 'en'],
+        'fallbacks': ['ru',],
+        # 'fallbacks': ['ru', 'en'],
         'redirect_on_fallback': True,
         'public': True,
         'hide_untranslated': False,
@@ -201,13 +204,14 @@ CMS_LANGUAGES = {
         'name': 'Ru',
         'redirect_on_fallback': True,
     },
-        {
-        'public': True,
-        'code': 'en',
-        'hide_untranslated': False,
-        'name': 'En',
-        'redirect_on_fallback': True,
-    }, ]
+    #     {
+    #     'public': True,
+    #     'code': 'en',
+    #     'hide_untranslated': False,
+    #     'name': 'En',
+    #     'redirect_on_fallback': True,
+    # },
+    ]
 }
 
 

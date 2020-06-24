@@ -10,6 +10,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.http import HttpResponse
 from cms.sitemaps import CMSSitemap
 from alby.sitemap import ProductSitemap
+from alby.settings import prefix_default_language as is_prefix
 
 # from phone_verify.api import VerificationViewSet
 
@@ -37,7 +38,7 @@ urlpatterns = [
 ]
 
 if settings.USE_I18N:
-    urlpatterns.extend(i18n_patterns(*i18n_urls))
+    urlpatterns.extend(i18n_patterns(*i18n_urls, prefix_default_language=is_prefix))
 else:
     urlpatterns.extend(i18n_urls)
 urlpatterns.extend(
