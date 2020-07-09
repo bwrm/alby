@@ -127,10 +127,12 @@ INSTALLED_APPS = [
     'haystack',
     'shop',
     'alby',
-    'nested_inline'
+    'nested_inline',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     # 'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,6 +149,8 @@ MIDDLEWARE = [
     'cms.middleware.toolbar.ToolbarMiddleware',
     # 'django.middleware.cache.FetchFromCacheMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'alby.urls'
 
@@ -454,14 +458,11 @@ THUMBNAIL_PROCESSORS = (
 CMS_TEMPLATES = [
     ('alby/pages/default.html', _("Default Page")),
 ]
-# TODO: remove on dev
+
 CMS_CACHE_DURATIONS = {
-    'content': 0,
-    'menus': 0,
-    'permissions': 0,
-    # 'content': 600,
-    # 'menus': 3600,
-    # 'permissions': 86400,
+    'content': 600,
+    'menus': 3600,
+    'permissions': 86400,
 }
 
 CMS_PERMISSION = True
