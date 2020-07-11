@@ -24,6 +24,7 @@ from polymorphic.admin import (PolymorphicParentModelAdmin, PolymorphicChildMode
 from alby.models import Product, Commodity, SofaModel, SofaVariant
 from alby.models import CommodityInventory, Lamel, Discount, LamelInventory, Fabric, VariantImage
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin, NestedTabularInline
+from adminsortable2.admin import SortableInlineAdminMixin
 
 
 admin.site.site_header = "ALBY Administration"
@@ -37,6 +38,15 @@ class OrderAdmin(BaseOrderAdmin, PrintInvoiceAdminMixin, DeliveryOrderAdminMixin
 
 __all__ = ['customer']
 
+from shop.models.related import ProductPageModel, ProductImageModel
+
+
+class ProductImageInlineNested(admin.StackedInline):
+    model = ProductImageModel
+    inlines = []
+    extra = 1
+
+
 class VariantImageInline(NestedTabularInline):
     model = VariantImage
     fk_name = 'product'
@@ -44,12 +54,11 @@ class VariantImageInline(NestedTabularInline):
 
 class SofaVariantInLine(NestedStackedInline):
     model = SofaVariant
-    classes = ['collapse']
     inlines = [VariantImageInline, ]
     fk_name = 'product_model'
     readonly_fields = ['product_code',]
     can_delete = True
-    extra = 0
+    extra = 1
 
 class CommodityInventoryAdmin(admin.StackedInline):
     model = CommodityInventory
@@ -124,7 +133,7 @@ class FabricAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableA
     )
     readonly_fields = ['product_code',]
     filter_horizontal = ['cms_pages']
-    inlines = [ProductImageInline]
+    inlines = [ProductImageInline, ]
     prepopulated_fields = {'slug': ['product_name']}
     save_as = True
 
@@ -146,7 +155,7 @@ class SofaModelAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
         }),
     )
     filter_horizontal = ['cms_pages']
-    inlines = [ProductImageInline, SofaVariantInLine]
+    inlines = [ProductImageInlineNested, SofaVariantInLine]
     prepopulated_fields = {'slug': ['product_name']}
     save_as = True
 
