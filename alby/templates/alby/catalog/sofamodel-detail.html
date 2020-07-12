@@ -13,27 +13,10 @@
 		</div>
 		<div class="col-xs-12 col-md-5">
 			<h3>{% render_model product "product_name" %}</h3>
-				<section id="test">
-				</section>
-			<table class="table table-bordered">
-				<tbody class="table-striped">
-					<tr>
-						<td>{% trans "Length" %}</td>
-						<td>{{ product.length }} {% trans "mm" %}</td>
-					</tr>
-					<tr>
-						<td>{% trans "Width" %}</td>
-						<td align="right">{{ product.lamella_width }} {% trans "mm" %}</td>
-					</tr>
-				</tbody>
-			</table>
-			<h1>{% verbatim %}{{context.unit_price}}{% endverbatim %}</h1>
+		<div>
+			{{ product.caption|safe }}
+		</div>
 			<!-- include "Add to Cart" dialog box -->
-			<div class="d-flex flex-column">
-			<div class="flex-grow-1 text-muted text-right mb-3">
-				<a href="#fabric"><button value="Fabric" class="btn btn-primary">Выбрать ткань</button></a>
-			</div>
-			</div>
 			<div class="d-flex flex-column">
 			<div class="card-body pb-0">
 		<div class="d-flex justify-content-between">
@@ -42,28 +25,31 @@
 		{% endblock %}
 		{% block product-unit-price %}
 			<div class="d-flex flex-column">
-				<span class="label">{% trans "Unit Price" %}</span>
-				<div class="lead mt-1" ng-cloak>
-				{% verbatim %}{{ context.unit_price }}{% endverbatim %}
+				<div class="lead mt-1">
+					<div class="d-flex flex-column">
+						<div class="flex-grow-1 text-muted text-right mb-3">
+							<a href="#fabric"><button value="Fabric" class="btn btn-primary">Выбрать ткань</button></a>
+						</div>
+					</div>
 				</div>
 			</div>
 		{% endblock %}
 		{% block purchase-item-subtotal %}
 			<div class="d-flex flex-column">
-				<span class="label">{% trans "Subtotal" %}</span>
+				<span class="label">{% trans "Unit Price" %}</span>
 				<div class="lead mt-1 font-weight-bold" ng-cloak>
-				{% verbatim %}{{ context.subtotal }}<sup>*</sup>{% endverbatim %}
+					{% verbatim %}{{ context.subtotal }}<sup>*</sup>{% endverbatim %}
 				</div>
 			</div>
 		{% endblock %}
 		</div>
 		<div class="d-flex justify-content-between">
-		{% block limited-availability %}{% endblock %}
-		{% block unmentioned-costs %}
-			<div class="flex-grow-1 text-muted text-right mb-3">
-				<small><sup>*</sup>&nbsp{% trans "incl. VAT, plus shipping costs." %}</small>
-			</div>
-		{% endblock %}
+			{% block limited-availability %}{% endblock %}
+			{% block unmentioned-costs %}
+				<div class="flex-grow-1 text-muted text-right mb-3">
+					<small><sup>*</sup>&nbsp{% trans "incl. VAT, plus shipping costs." %}</small>
+				</div>
+			{% endblock %}
 		</div>
 	</div>
 	{% block add-product-to-cart-footer %}
@@ -121,7 +107,7 @@
 										<img src="{{ sofa.fabric.sample_image.thumbnails|get_item:'admin_sidebar_preview' }}" class='mx-auto img-thumbnail' width="auto" height="auto" />
 									</a>
 								</div>
-								<span class="fabric-item__name">{{sofa.fabric.fabric_name}}</span>
+								<span class="fabric-item__name">{{sofa.fabric}}</span>
 							</div>
 						{% endfor %}
 					</div>
@@ -146,13 +132,13 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-	  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+		  <h6 class="text-uppercase">{% verbatim %}{{ dataSmall.fabric_name }}{% endverbatim %}</h6>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+		  </button>
       </div>
       <div class="modal-body">
 		  <div>
-			  <h3 class="text-uppercase">{% verbatim %}{{ dataSmall.fabric_name }}{% endverbatim %}</h3>
 			  <p>{% verbatim %}{{ dataSmall.description }}{% endverbatim %}</p>
 			  <p><strong>{% trans "Fabric type" %}:</strong>{% verbatim %}{{ dataSmall.fabric_type }}{% endverbatim %}</p>
 			  <p><strong>{% trans "Composition" %}:</strong>{% verbatim %}{{ dataSmall.composition }}{% endverbatim %}</p>

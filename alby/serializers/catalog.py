@@ -125,7 +125,7 @@ class UpdateDataSerialiser(serializers.Serializer):
         product = context['product']
         request = context['request']
         return {
-            'fabric_name': product.fabric_name,
+            'fabric_name': product.product_name,
             'fabric_type': product.fabric_type,
             'composition': product.composition,
             'description': product.description,
