@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-13 14:44+0000\n"
+"POT-Creation-Date: 2020-07-11 13:36+0000\n"
 "PO-Revision-Date: 2020-06-22 08:18+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,725 +20,21 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Generator: Poedit 2.0.7\n"
 
-#: alby/admin/admin.py:93 alby/admin/admin.py:118 alby/admin/admin.py:141
-msgid "Translatable Fields"
-msgstr "Переводимые поля"
-
-#: alby/admin/admin.py:96 alby/admin/admin.py:121 alby/admin/admin.py:144
-msgid "Properties"
-msgstr "Свойства"
-
-#: alby/admin/admin.py:169
-msgid "Price starting at"
-msgstr "Цена от"
-
-#: alby/admin/customer.py:14
-msgid "Addresses"
-msgstr "Адрес"
-
-#: alby/admin/customer.py:20 alby/models/customer.py:35
-msgid "Customer Number"
-msgstr "Номер клиента"
-
-#: alby/admin/customer.py:24
-#, fuzzy
-#| msgid "Customer's phonenumber"
-msgid "Customer Phone"
-msgstr "Номер телефона"
-
-#: alby/admin/customer.py:29
-msgid "Shipping"
-msgstr "Доставка"
-
-#: alby/admin/customer.py:34
-msgid "Billing"
-msgstr "Оплата"
-
-#: alby/apps.py:13
-msgid "My Shop"
-msgstr "Магазин"
-
-#: alby/forms/checkout.py:24
-msgid "Customer's Details"
-msgstr "Подробная информация"
-
-#: alby/forms/checkout.py:25
-msgid "Email address"
-msgstr "Адрес эл. почты"
-
-#: alby/forms/checkout.py:27
-msgid "First Name"
-msgstr "Имя"
-
-#: alby/forms/checkout.py:65
-#, fuzzy
-#| msgid "Customer's phonenumber"
-msgid "Customer's Phone number"
-msgstr "Номер телефона"
-
-#: alby/forms/checkout.py:89 alby/models/address.py:47 alby/models/order.py:23
-msgid "Shipping Address"
-msgstr "Адрес доставки"
-
-#: alby/forms/checkout.py:110
-msgid "Payment Method"
-msgstr "Способ оплаты"
-
-#: alby/forms/checkout.py:137
-msgid "Select a valid Payment method. Is not one of the available choices."
-msgstr "Выберите другой способ оплаты. Данный способ не доступен."
-
-#: alby/models/address.py:13
-msgid "Full name"
-msgstr "Ф.И.О."
-
-#: alby/models/address.py:18
-msgid "Address line 1"
-msgstr "Адрес"
-
-#: alby/models/address.py:23
-#, fuzzy
-#| msgid "Addresses"
-msgid "Address line 2"
-msgstr "Адрес"
-
-#: alby/models/address.py:30
-msgid "ZIP / Postal code"
-msgstr "Индекс"
-
-#: alby/models/address.py:35
-msgid "City"
-msgstr "Город"
-
-#: alby/models/address.py:48
-#, fuzzy
-#| msgid "Shipping costs"
-msgid "Shipping Addresses"
-msgstr "Стоимость доставки"
-
-#: alby/models/address.py:53 alby/models/order.py:30
-msgid "Billing Address"
-msgstr "Платежный адрес"
-
-#: alby/models/address.py:54
-#, fuzzy
-#| msgid "Addresses"
-msgid "Billing Addresses"
-msgstr "Адрес"
-
-#: alby/models/customer.py:22 phoneauth/models.py:69
-msgid "Phone number"
-msgstr "Номер телефона*"
-
-#: alby/models/customer.py:28 phoneauth/models.py:75
-msgid "Required. 150 characters or fewer. Digits and + only."
-msgstr "Введите номер телефона в международном формаие. Пр.: +375291234567"
-
-#: alby/models/customer.py:30 phoneauth/models.py:77 phoneauth/models.py:82
-msgid "A user with that username already exists."
-msgstr "Такой пользователь уже зарегистрирован"
-
-#: alby/models/discount.py:6
-msgid "Discount name"
-msgstr "Название скидки"
-
-#: alby/models/discount.py:7
-msgid "Discount schema"
-msgstr "Правило скидок"
-
-#: alby/models/discount.py:7
-msgid ""
-"Type discont scheme: first- quantity? second- rebate in %. Example: 10:25 - "
-"10 -quantity 25%"
-msgstr ""
-"Введите правило скидок: первым количество ? вторым процент скидки Прим. "
-"10:25 10 -шт 25 %"
-
-#: alby/models/models.py:44 alby/models/models.py:49
-msgid "Product model"
-msgstr "Артикул"
-
-#: alby/models/models.py:92
-msgid "Product Name"
-msgstr "Наименование"
-
-#: alby/models/models.py:96
-msgid "Slug"
-msgstr "путь"
-
-#: alby/models/models.py:104
-msgid "Sort by"
-msgstr "Сортировать по"
-
-#: alby/models/models.py:111
-msgid "Choose list view this product shall appear on."
-msgstr "Выберите в какой категории должен появиться товар."
-
-#: alby/models/models.py:122
-msgid "Product"
-msgstr "Товар"
-
-#: alby/models/models.py:123
-msgid "Products"
-msgstr "Товары"
-
-#: alby/models/models.py:146 alby/models/models.py:187
-#: alby/models/models.py:285 alby/models/models.py:388
-#: alby/models/models.py:420
-msgid "Caption"
-msgstr "Характеристики"
-
-#: alby/models/models.py:151
-msgid "Short description used in the catalog's list view of products."
-msgstr "Краткой описание продукта в каталоге."
-
-#: alby/models/models.py:154 alby/models/models.py:180
-#: alby/models/models.py:278 alby/models/models.py:381
-#: alby/models/models.py:413
-msgid "Description"
-msgstr "Описание"
-
-#: alby/models/models.py:158 alby/models/models.py:184
-#: alby/models/models.py:191 alby/models/models.py:282
-#: alby/models/models.py:289 alby/models/models.py:385
-#: alby/models/models.py:392 alby/models/models.py:417
-#: alby/models/models.py:424
-msgid "Full description used in the catalog's detail view of Smart Cards."
-msgstr "Полное описание для страници продукта."
-
-#: alby/models/models.py:170 alby/models/models.py:231
-#: alby/models/models.py:477
-msgid "Unit price"
-msgstr "Цена за ед."
-
-#: alby/models/models.py:172 alby/models/models.py:233
-msgid "Net price for this product"
-msgstr "Цена без НДС"
-
-#: alby/models/models.py:201
-msgid "Commodity"
-msgstr "Товар"
-
-#: alby/models/models.py:202
-msgid "Commodities"
-msgstr "Товары"
-
-#: alby/models/models.py:216 alby/models/models.py:333
-#: alby/templates/alby/catalog/prod-add2cart.html:22
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:69
-msgid "Quantity"
-msgstr "Количество"
-
-#: alby/models/models.py:219 alby/models/models.py:336
-msgid "Available quantity in stock"
-msgstr "Количество на складе"
-
-#: alby/models/models.py:238
-#, fuzzy
-#| msgid "Width"
-msgid "width"
-msgstr "Ширина"
-
-#: alby/models/models.py:242
-msgid "Lamels width"
-msgstr "Ширина"
-
-#: alby/models/models.py:246
-msgid "Lamel's length"
-msgstr "Длина"
-
-#: alby/models/models.py:253
-msgid "Lamel's depth"
-msgstr "Толщина"
-
-#: alby/models/models.py:260
-#, fuzzy
-#| msgid "Height"
-msgid "weight"
-msgstr "Высота"
-
-#: alby/models/models.py:263
-#, fuzzy
-#| msgid "Weight in gram"
-msgid "Weight of item, kg"
-msgstr "Вес, грамм"
-
-#: alby/models/models.py:266 alby/models/models.py:299
-msgid "Lamel"
-msgstr "Ламель"
-
-#: alby/models/models.py:268
-msgid "Is this lamel (for calculating weight)."
-msgstr "Ламель? (для вычисления веста товара)"
-
-#: alby/models/models.py:272
-msgid "Enter weight by hand"
-msgstr "Ввести вес вручную"
-
-#: alby/models/models.py:274
-msgid "For enter lamel weight by hand"
-msgstr "Для внесения веса вручную"
-
-#: alby/models/models.py:300
-msgid "Lamels"
-msgstr "Ламель"
-
-#: alby/models/models.py:342
-msgid "Fabric name"
-msgstr "Тип ткани"
-
-#: alby/models/models.py:348
-msgid "Price per meter"
-msgstr "Цена за метр"
-
-#: alby/models/models.py:350
-#, fuzzy
-#| msgid "Net price for this product"
-msgid "Net price for this product by meter"
-msgstr "Цена без НДС"
-
-#: alby/models/models.py:359
-#: alby/templates/alby/catalog/sofamodel-detail.html:157
-msgid "Fabric type"
-msgstr "Тип ткани"
-
-#: alby/models/models.py:370
-msgid "Comosition of fabric"
-msgstr "Состав ткани"
-
-#: alby/models/models.py:375
-#: alby/templates/alby/catalog/sofamodel-detail.html:159
-msgid "Recommended wash care"
-msgstr "Уход"
-
-#: alby/models/models.py:399
-msgid "Fabric"
-msgstr "Ткань"
-
-#: alby/models/models.py:400
-msgid "Fabrics"
-msgstr "Ткани"
-
-#: alby/models/models.py:407
-msgid "Sofa Type"
-msgstr "Дип дивана"
-
-#: alby/models/models.py:408
-#, fuzzy
-#| msgid "Total weight"
-msgid "Straight"
-msgstr "Общий вес"
-
-#: alby/models/models.py:408
-msgid "Corner"
-msgstr "Угловой"
-
-#: alby/models/models.py:408
-msgid "2 seat"
-msgstr "Двухместный"
-
-#: alby/models/models.py:408
-msgid "3 seat"
-msgstr "Трехместный"
-
-#: alby/models/models.py:408
-msgid "Sofabed"
-msgstr "Диван-кровать"
-
-#: alby/models/models.py:408
-msgid "Chair"
-msgstr "Кресло"
-
-#: alby/models/models.py:503
-#, fuzzy
-#| msgid "Product Name"
-msgid "Product Image"
-msgstr "Наименование"
-
-#: alby/models/models.py:504
-#, fuzzy
-#| msgid "Product Name"
-msgid "Product Images"
-msgstr "Наименование"
-
-#: alby/models/order.py:16
-#, fuzzy
-#| msgid "Customer Number"
-msgid "Order Number"
-msgstr "Номер клиента"
-
-#: alby/models/order.py:26
-msgid "Shipping address at the moment of purchase."
-msgstr "Адрес доставки"
-
-#: alby/models/order.py:33
-msgid "Billing address at the moment of purchase."
-msgstr "Платежный адрес"
-
-#: alby/models/order.py:37
-msgid "Token"
-msgstr "Токен"
-
-#: alby/models/order.py:41
-#, fuzzy
-msgid ""
-"Secret key to verify ownership on detail view without requiring "
-"authentication."
-msgstr ""
-"Секретный ключ для подтверждения владения без необходимости "
-"аутентифицирования."
-
-#: alby/models/order.py:45
-msgctxt "order_models"
-msgid "Order"
-msgstr "Заказ"
-
-#: alby/models/order.py:46
-msgctxt "order_models"
-msgid "Orders"
-msgstr "Заказы"
-
-#: alby/models/order_item.py:11
-msgid "Ordered quantity"
-msgstr "Заказанное количество"
-
-#: alby/models/order_item.py:16
-#, fuzzy
-#| msgid "Ordered quantity"
-msgctxt "order_models"
-msgid "Ordered Item"
-msgstr "Заказанное количество"
-
-#: alby/models/order_item.py:17
-#, fuzzy
-#| msgid "Ordered quantity"
-msgctxt "order_models"
-msgid "Ordered Items"
-msgstr "Заказанное количество"
-
-#: alby/modifiers/modifiers.py:41
-msgid "Postal shipping"
-msgstr "Доставка почтой"
-
-#: alby/modifiers/modifiers.py:61
-msgid "Shipping costs"
-msgstr "Стоимость доставки"
-
-#: alby/modifiers/modifiers.py:74
-msgid "Courier delivery. Onliy within Minsk"
-msgstr "Доставка курьером. Тольго в пределах г. Минска"
-
-#: alby/modifiers/modifiers.py:81
-#, fuzzy
-#| msgid "Shipping costs"
-msgid "Courier shipping costs"
-msgstr "Стоимость доставки"
-
-#: alby/modifiers/modifiers.py:107
-msgid "Pay by card"
-msgstr "Оплата картой"
-
-#: alby/modifiers/modifiers.py:118
-msgid "Pay when take"
-msgstr "Оплата при получении"
-
-#: alby/modifiers/modifiers.py:133
-msgid "Pay at post"
-msgstr "Оплата наложенным платежем (в Белпочте)"
-
-#: alby/modifiers/modifiers.py:139
-msgid "Extra charge by post"
-msgstr "Сбор за почтовое отправление"
-
-#: alby/modifiers/workflows.py:17
-msgid "Ready for take"
-msgstr "Готов к получению"
-
-#: alby/modifiers/workflows.py:18
-msgid "Order completed"
-msgstr "Заказ выполнен"
-
-#: alby/modifiers/workflows.py:22
-msgid "Prepare for taking"
-msgstr "Готов к получению"
-
-#: alby/modifiers/workflows.py:31
-msgid "Uncompletad"
-msgstr "Не выполнен"
-
-#: alby/modifiers/workflows.py:40
-msgid "Mark as Completed"
-msgstr "Отметить выполненным"
-
-#: alby/settings.py:451
-msgid "Default Page"
-msgstr "Страница по умолчанию"
-
-#: alby/settings.py:516
-msgid "Product Heading"
-msgstr "Заголовок"
-
-#: alby/settings.py:521
-msgid "Default"
-msgstr "По умолчанию"
-
-#: alby/settings.py:522
-msgid "Add Commodity to Cart"
-msgstr "Добавить товар в Корзину"
-
-#: alby/templates/alby/cart/editable.html:9
-#: alby/templates/alby/cart/static.html:52
-msgid "Total weight"
-msgstr "Общий вес"
-
-#: alby/templates/alby/cart/editable.html:12
-#: alby/templates/alby/cart/static.html:55
-#: alby/templates/alby/catalog/lamel-detail.html:37
-msgid "kg"
-msgstr "кг"
-
-#: alby/templates/alby/cart/editable.html:18
-#: alby/templates/alby/cart/static.html:61
-#: alby/templates/alby/catalog/prod-add2cart.html:38
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:85
-#: alby/templates/alby/catalog/sofamodel-detail.html:53
-#: alby/templates/alby/templatetags/cart-icon.html:44
-msgid "Subtotal"
-msgstr "Подитог"
-
-#: alby/templates/alby/cart/editable.html:29
-#: alby/templates/alby/cart/static.html:78
-msgid "Total"
-msgstr "Итого"
-
-#: alby/templates/alby/cart/static.html:10
-msgid "There are no items in the cart"
-msgstr "Вы еще ничего не выбрали."
-
-#: alby/templates/alby/catalog/commodity-add2cart.html:9
-msgid "This item has already been sold"
-msgstr "Товар уже продан."
-
-#: alby/templates/alby/catalog/lamel-detail.html:21
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:42
-#: alby/templates/alby/catalog/sofamodel-detail.html:21
-msgid "Length"
-msgstr "Длина"
-
-#: alby/templates/alby/catalog/lamel-detail.html:22
-#: alby/templates/alby/catalog/lamel-detail.html:26
-#: alby/templates/alby/catalog/lamel-detail.html:31
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:43
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:47
-#: alby/templates/alby/catalog/sofamodel-detail.html:22
-#: alby/templates/alby/catalog/sofamodel-detail.html:26
-msgid "mm"
-msgstr "мм"
-
-#: alby/templates/alby/catalog/lamel-detail.html:25
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:46
-#: alby/templates/alby/catalog/sofamodel-detail.html:25
-msgid "Width"
-msgstr "Ширина"
-
-#: alby/templates/alby/catalog/lamel-detail.html:30
-msgid "Depth"
-msgstr "Толщина"
-
-#: alby/templates/alby/catalog/lamel-detail.html:36
-msgid "Weight per unit"
-msgstr "Вес единицы"
-
-#: alby/templates/alby/catalog/lamel-detail.html:44
-msgid "* Price depends on order quantity. For get price enter quantity below"
-msgstr ""
-"* Цена зависит от количества, для уточнения введите необходимое Вам "
-"количество."
-
-#: alby/templates/alby/catalog/lamel-detail.html:54
-#: alby/templates/alby/catalog/lamel-detail.html:56
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:128
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:130
-#: alby/templates/alby/catalog/sofamodel-detail.html:96
-msgid "Информация о товаре"
-msgstr "Информация о товаре"
-
-#: alby/templates/alby/catalog/lamel-detail.html:61
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:135
-msgid "Технические характеристики"
-msgstr "Технические характеристики"
-
-#: alby/templates/alby/catalog/prod-add2cart.html:30
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:77
-#: alby/templates/alby/catalog/sofamodel-detail.html:45
-msgid "Unit Price"
-msgstr "Цена за ед."
-
-#: alby/templates/alby/catalog/prod-add2cart.html:49
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:96
-#: alby/templates/alby/catalog/sofamodel-detail.html:64
-msgid "incl. VAT, plus shipping costs."
-msgstr "с НДС, без учета доставки"
-
-#: alby/templates/alby/catalog/prod-add2cart.html:60
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:105
-#: alby/templates/alby/catalog/sofamodel-detail.html:73
-msgid "Watch product"
-msgstr "В список"
-
-#: alby/templates/alby/catalog/prod-add2cart.html:63
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:108
-#: alby/templates/alby/catalog/sofamodel-detail.html:76
-msgid "The product has been successfully placed in the shopping cart:"
-msgstr "Товар добавлен в корзину"
-
-#: alby/templates/alby/catalog/prod-add2cart.html:65
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:110
-#: alby/templates/alby/catalog/sofamodel-detail.html:78
-msgid "Add to cart"
-msgstr "В корзину"
-
-#: alby/templates/alby/catalog/prod-add2cart.html:71
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:116
-#: alby/templates/alby/catalog/sofamodel-detail.html:84
-#, fuzzy
-msgid ""
-"By adding a product to the cart you are giving consent to cookies being used."
-msgstr "Добавляя товар в корзину, вы соглашаетесь на использование cookies."
-
-#: alby/templates/alby/catalog/sofamodel-detail-bak.html:54
-msgid "Type"
-msgstr "Тип"
-
-#: alby/templates/alby/catalog/sofamodel-detail.html:98
-msgid "Ткани"
-msgstr ""
-
-#: alby/templates/alby/catalog/sofamodel-detail.html:103
-#, fuzzy
-#| msgid "Технические характеристики"
-msgid "Характеристики"
-msgstr "Технические характеристики"
-
-#: alby/templates/alby/catalog/sofamodel-detail.html:108
-#, fuzzy
-#| msgid "Информация о товаре"
-msgid "Информация"
-msgstr "Информация о товаре"
-
-#: alby/templates/alby/catalog/sofamodel-detail.html:158
-msgid "Composition"
-msgstr "Состав"
-
-#: alby/templates/alby/checkout/payment-method-form.html:22
-#: alby/templates/alby/checkout/payment-method-form.html:25
-#: alby/templates/alby/checkout/shipping-method-form.html:22
-#: alby/templates/alby/checkout/shipping-method-form.html:25
-#, fuzzy
-msgid "Additional charge"
-msgstr "Дополнительный сбор"
-
-#: alby/templates/alby/checkout/payment-method-form.html:31
-msgid "No payment method available"
-msgstr "Метод оплаты не доступен"
-
-#: alby/templates/alby/checkout/purchase-button.html:10
-#, fuzzy
-msgid "Dismiss"
-msgstr "Пропустить"
-
-#: alby/templates/alby/checkout/shipping-address-form.html:32
-msgid "Choose a previously used shipping address"
-msgstr "Использовать имеющийся адрес доставки."
-
-#: alby/templates/alby/checkout/shipping-address-form.html:37
-msgid "Add a new shipping address"
-msgstr "Добавить новый адрес доставки"
-
-#: alby/templates/alby/checkout/shipping-address-form.html:47
-msgid "Remove this address"
-msgstr "Удалить адрес."
-
-#: alby/templates/alby/checkout/shipping-method-form.html:31
-msgid "No shipping method available"
-msgstr "Нет доступных методов доставки"
-
-#: alby/templates/alby/navbar/language-chooser.html:5
-msgid "Language"
-msgstr "Язык"
-
-#: alby/templates/alby/navbar/login-logout.html:19
-msgid "Sign in"
-msgstr "Войти"
-
-#: alby/templates/alby/navbar/login-logout.html:27
-msgid "Logout"
-msgstr "Выйти"
-
-#: alby/templates/alby/navbar/login-logout.html:52
-#: alby/templates/alby/navbar/login-logout.html:55
-msgid "E-Mail"
-msgstr ""
-
-#: alby/templates/alby/navbar/login-logout.html:59
-#: alby/templates/alby/navbar/login-logout.html:62
-msgid "Password"
-msgstr "Пароль"
-
-#: alby/templates/alby/navbar/login-logout.html:69
-msgid "Stay logged in"
-msgstr "Оставаться в системе"
-
-#: alby/templates/alby/navbar/login-logout.html:74
-msgid "Login"
-msgstr "Войти"
-
-#: alby/templates/alby/navbar/login-logout.html:82
-msgid "Password Forgotten?"
-msgstr "Забыли пароль?"
-
-#: alby/templates/alby/navbar/login-logout.html:85
-msgid "Register Yourself"
-msgstr "Зарегистрироваться"
-
-#: alby/templates/alby/navbar/ng-nav-navbar.html:8
-msgid "Toggle navigation"
-msgstr "Переключить навигацию"
-
-#: alby/templates/alby/navbar/search-form.html:14
-msgid "Search"
-msgstr "Поиск"
-
-#: alby/templates/alby/navbar/search-form.html:16
-msgid "Refine your search"
-msgstr "Усточните свой поиск"
-
-#: alby/templates/alby/navbar/watch-icon.html:7
-#: alby/templates/alby/pages/navbar-new.html:1147
-msgid "Watch List"
-msgstr "В список"
-
-#: alby/templates/alby/pages/error.html:14
-#, python-format
-msgid ""
-"In case you have ordered anything on this site before, please <a href="
-"\"%(login_url)s\">sign in</a> and try again."
-msgstr ""
-"Если Вы заказывали что- нибудь, на этом сайте ранее, пожалуйста <a href="
-"\"%(login_url)s\">войдите в учетную запись</a> и попробуйте еще раз."
-
-#: alby/templates/alby/templatetags/cart-icon.html:39
-#, fuzzy, python-format
-msgid "and %(remaining)s <a href=\"%(shop_cart_url)s\">more items</a>."
-msgstr "и %(оставшиеся) <a href=\"%(shop_cart_url)s\">больше единиц</a>."
-
-#: alby/templates/alby/templatetags/cart-icon.html:48
-msgid "Checkout"
-msgstr "Оформить"
-
 #: phoneauth/modelfields.py:9
 msgid "Email or Phone address"
 msgstr "Номе тел. или Email"
+
+#: phoneauth/models.py:69
+msgid "Phone number"
+msgstr "Номер телефона*"
+
+#: phoneauth/models.py:75
+msgid "Required. 150 characters or fewer. Digits and + only."
+msgstr "Введите номер телефона в международном формаие. Пр.: +375291234567"
+
+#: phoneauth/models.py:77 phoneauth/models.py:82
+msgid "A user with that username already exists."
+msgstr "Такой пользователь уже зарегистрирован"
 
 #: phoneauth/models.py:80
 msgid "email address"
@@ -772,6 +68,503 @@ msgid ""
 msgstr ""
 "Номер телефона или E-mail введен не верно. Номер телефона должен быть введен "
 "в международном формате (+375291234567)!"
+
+#~ msgid "Translatable Fields"
+#~ msgstr "Переводимые поля"
+
+#~ msgid "Properties"
+#~ msgstr "Свойства"
+
+#~ msgid "Price starting at"
+#~ msgstr "Цена от"
+
+#~ msgid "Addresses"
+#~ msgstr "Адрес"
+
+#~ msgid "Customer Number"
+#~ msgstr "Номер клиента"
+
+#, fuzzy
+#~| msgid "Customer's phonenumber"
+#~ msgid "Customer Phone"
+#~ msgstr "Номер телефона"
+
+#~ msgid "Shipping"
+#~ msgstr "Доставка"
+
+#~ msgid "Billing"
+#~ msgstr "Оплата"
+
+#~ msgid "My Shop"
+#~ msgstr "Магазин"
+
+#~ msgid "Customer's Details"
+#~ msgstr "Подробная информация"
+
+#~ msgid "Email address"
+#~ msgstr "Адрес эл. почты"
+
+#~ msgid "First Name"
+#~ msgstr "Имя"
+
+#, fuzzy
+#~| msgid "Customer's phonenumber"
+#~ msgid "Customer's Phone number"
+#~ msgstr "Номер телефона"
+
+#~ msgid "Shipping Address"
+#~ msgstr "Адрес доставки"
+
+#~ msgid "Payment Method"
+#~ msgstr "Способ оплаты"
+
+#~ msgid "Select a valid Payment method. Is not one of the available choices."
+#~ msgstr "Выберите другой способ оплаты. Данный способ не доступен."
+
+#~ msgid "Full name"
+#~ msgstr "Ф.И.О."
+
+#~ msgid "Address line 1"
+#~ msgstr "Адрес"
+
+#, fuzzy
+#~| msgid "Addresses"
+#~ msgid "Address line 2"
+#~ msgstr "Адрес"
+
+#~ msgid "ZIP / Postal code"
+#~ msgstr "Индекс"
+
+#~ msgid "City"
+#~ msgstr "Город"
+
+#, fuzzy
+#~| msgid "Shipping costs"
+#~ msgid "Shipping Addresses"
+#~ msgstr "Стоимость доставки"
+
+#~ msgid "Billing Address"
+#~ msgstr "Платежный адрес"
+
+#, fuzzy
+#~| msgid "Addresses"
+#~ msgid "Billing Addresses"
+#~ msgstr "Адрес"
+
+#~ msgid "Discount name"
+#~ msgstr "Название скидки"
+
+#~ msgid "Discount schema"
+#~ msgstr "Правило скидок"
+
+#~ msgid ""
+#~ "Type discont scheme: first- quantity? second- rebate in %. Example: 10:25 "
+#~ "- 10 -quantity 25%"
+#~ msgstr ""
+#~ "Введите правило скидок: первым количество ? вторым процент скидки Прим. "
+#~ "10:25 10 -шт 25 %"
+
+#~ msgid "Product model"
+#~ msgstr "Артикул"
+
+#~ msgid "Product Name"
+#~ msgstr "Наименование"
+
+#~ msgid "Slug"
+#~ msgstr "путь"
+
+#~ msgid "Sort by"
+#~ msgstr "Сортировать по"
+
+#~ msgid "Choose list view this product shall appear on."
+#~ msgstr "Выберите в какой категории должен появиться товар."
+
+#~ msgid "Product"
+#~ msgstr "Товар"
+
+#~ msgid "Products"
+#~ msgstr "Товары"
+
+#~ msgid "Caption"
+#~ msgstr "Характеристики"
+
+#~ msgid "Short description used in the catalog's list view of products."
+#~ msgstr "Краткой описание продукта в каталоге."
+
+#~ msgid "Description"
+#~ msgstr "Описание"
+
+#~ msgid "Full description used in the catalog's detail view of Smart Cards."
+#~ msgstr "Полное описание для страници продукта."
+
+#~ msgid "Unit price"
+#~ msgstr "Цена за ед."
+
+#~ msgid "Net price for this product"
+#~ msgstr "Цена без НДС"
+
+#~ msgid "Commodity"
+#~ msgstr "Товар"
+
+#~ msgid "Commodities"
+#~ msgstr "Товары"
+
+#~ msgid "Quantity"
+#~ msgstr "Количество"
+
+#~ msgid "Available quantity in stock"
+#~ msgstr "Количество на складе"
+
+#, fuzzy
+#~| msgid "Width"
+#~ msgid "width"
+#~ msgstr "Ширина"
+
+#~ msgid "Lamels width"
+#~ msgstr "Ширина"
+
+#~ msgid "Lamel's length"
+#~ msgstr "Длина"
+
+#~ msgid "Lamel's depth"
+#~ msgstr "Толщина"
+
+#, fuzzy
+#~| msgid "Height"
+#~ msgid "weight"
+#~ msgstr "Высота"
+
+#, fuzzy
+#~| msgid "Weight in gram"
+#~ msgid "Weight of item, kg"
+#~ msgstr "Вес, грамм"
+
+#~ msgid "Lamel"
+#~ msgstr "Ламель"
+
+#~ msgid "Is this lamel (for calculating weight)."
+#~ msgstr "Ламель? (для вычисления веста товара)"
+
+#~ msgid "Enter weight by hand"
+#~ msgstr "Ввести вес вручную"
+
+#~ msgid "For enter lamel weight by hand"
+#~ msgstr "Для внесения веса вручную"
+
+#~ msgid "Lamels"
+#~ msgstr "Ламель"
+
+#~ msgid "Fabric name"
+#~ msgstr "Тип ткани"
+
+#~ msgid "Price per meter"
+#~ msgstr "Цена за метр"
+
+#, fuzzy
+#~| msgid "Net price for this product"
+#~ msgid "Net price for this product by meter"
+#~ msgstr "Цена без НДС"
+
+#~ msgid "Fabric type"
+#~ msgstr "Тип ткани"
+
+#~ msgid "Comosition of fabric"
+#~ msgstr "Состав ткани"
+
+#~ msgid "Recommended wash care"
+#~ msgstr "Уход"
+
+#~ msgid "Fabric"
+#~ msgstr "Ткань"
+
+#~ msgid "Fabrics"
+#~ msgstr "Ткани"
+
+#~ msgid "Sofa Type"
+#~ msgstr "Дип дивана"
+
+#, fuzzy
+#~| msgid "Total weight"
+#~ msgid "Straight"
+#~ msgstr "Общий вес"
+
+#~ msgid "Corner"
+#~ msgstr "Угловой"
+
+#~ msgid "2 seat"
+#~ msgstr "Двухместный"
+
+#~ msgid "3 seat"
+#~ msgstr "Трехместный"
+
+#~ msgid "Sofabed"
+#~ msgstr "Диван-кровать"
+
+#~ msgid "Chair"
+#~ msgstr "Кресло"
+
+#, fuzzy
+#~| msgid "Product Name"
+#~ msgid "Product Image"
+#~ msgstr "Наименование"
+
+#, fuzzy
+#~| msgid "Product Name"
+#~ msgid "Product Images"
+#~ msgstr "Наименование"
+
+#, fuzzy
+#~| msgid "Customer Number"
+#~ msgid "Order Number"
+#~ msgstr "Номер клиента"
+
+#~ msgid "Shipping address at the moment of purchase."
+#~ msgstr "Адрес доставки"
+
+#~ msgid "Billing address at the moment of purchase."
+#~ msgstr "Платежный адрес"
+
+#~ msgid "Token"
+#~ msgstr "Токен"
+
+#, fuzzy
+#~ msgid ""
+#~ "Secret key to verify ownership on detail view without requiring "
+#~ "authentication."
+#~ msgstr ""
+#~ "Секретный ключ для подтверждения владения без необходимости "
+#~ "аутентифицирования."
+
+#~ msgctxt "order_models"
+#~ msgid "Order"
+#~ msgstr "Заказ"
+
+#~ msgctxt "order_models"
+#~ msgid "Orders"
+#~ msgstr "Заказы"
+
+#~ msgid "Ordered quantity"
+#~ msgstr "Заказанное количество"
+
+#, fuzzy
+#~| msgid "Ordered quantity"
+#~ msgctxt "order_models"
+#~ msgid "Ordered Item"
+#~ msgstr "Заказанное количество"
+
+#, fuzzy
+#~| msgid "Ordered quantity"
+#~ msgctxt "order_models"
+#~ msgid "Ordered Items"
+#~ msgstr "Заказанное количество"
+
+#~ msgid "Postal shipping"
+#~ msgstr "Доставка почтой"
+
+#~ msgid "Shipping costs"
+#~ msgstr "Стоимость доставки"
+
+#~ msgid "Courier delivery. Onliy within Minsk"
+#~ msgstr "Доставка курьером. Тольго в пределах г. Минска"
+
+#, fuzzy
+#~| msgid "Shipping costs"
+#~ msgid "Courier shipping costs"
+#~ msgstr "Стоимость доставки"
+
+#~ msgid "Pay by card"
+#~ msgstr "Оплата картой"
+
+#~ msgid "Pay when take"
+#~ msgstr "Оплата при получении"
+
+#~ msgid "Pay at post"
+#~ msgstr "Оплата наложенным платежем (в Белпочте)"
+
+#~ msgid "Extra charge by post"
+#~ msgstr "Сбор за почтовое отправление"
+
+#~ msgid "Ready for take"
+#~ msgstr "Готов к получению"
+
+#~ msgid "Order completed"
+#~ msgstr "Заказ выполнен"
+
+#~ msgid "Prepare for taking"
+#~ msgstr "Готов к получению"
+
+#~ msgid "Uncompletad"
+#~ msgstr "Не выполнен"
+
+#~ msgid "Mark as Completed"
+#~ msgstr "Отметить выполненным"
+
+#~ msgid "Default Page"
+#~ msgstr "Страница по умолчанию"
+
+#~ msgid "Product Heading"
+#~ msgstr "Заголовок"
+
+#~ msgid "Default"
+#~ msgstr "По умолчанию"
+
+#~ msgid "Add Commodity to Cart"
+#~ msgstr "Добавить товар в Корзину"
+
+#~ msgid "Total weight"
+#~ msgstr "Общий вес"
+
+#~ msgid "kg"
+#~ msgstr "кг"
+
+#~ msgid "Subtotal"
+#~ msgstr "Подитог"
+
+#~ msgid "Total"
+#~ msgstr "Итого"
+
+#~ msgid "There are no items in the cart"
+#~ msgstr "Вы еще ничего не выбрали."
+
+#~ msgid "This item has already been sold"
+#~ msgstr "Товар уже продан."
+
+#~ msgid "Length"
+#~ msgstr "Длина"
+
+#~ msgid "mm"
+#~ msgstr "мм"
+
+#~ msgid "Width"
+#~ msgstr "Ширина"
+
+#~ msgid "Depth"
+#~ msgstr "Толщина"
+
+#~ msgid "Weight per unit"
+#~ msgstr "Вес единицы"
+
+#~ msgid ""
+#~ "* Price depends on order quantity. For get price enter quantity below"
+#~ msgstr ""
+#~ "* Цена зависит от количества, для уточнения введите необходимое Вам "
+#~ "количество."
+
+#~ msgid "Информация о товаре"
+#~ msgstr "Информация о товаре"
+
+#~ msgid "Технические характеристики"
+#~ msgstr "Технические характеристики"
+
+#~ msgid "Unit Price"
+#~ msgstr "Цена за ед."
+
+#~ msgid "incl. VAT, plus shipping costs."
+#~ msgstr "с НДС, без учета доставки"
+
+#~ msgid "Watch product"
+#~ msgstr "В список"
+
+#~ msgid "The product has been successfully placed in the shopping cart:"
+#~ msgstr "Товар добавлен в корзину"
+
+#~ msgid "Add to cart"
+#~ msgstr "В корзину"
+
+#, fuzzy
+#~ msgid ""
+#~ "By adding a product to the cart you are giving consent to cookies being "
+#~ "used."
+#~ msgstr "Добавляя товар в корзину, вы соглашаетесь на использование cookies."
+
+#~ msgid "Type"
+#~ msgstr "Тип"
+
+#, fuzzy
+#~| msgid "Технические характеристики"
+#~ msgid "Характеристики"
+#~ msgstr "Технические характеристики"
+
+#, fuzzy
+#~| msgid "Информация о товаре"
+#~ msgid "Информация"
+#~ msgstr "Информация о товаре"
+
+#~ msgid "Composition"
+#~ msgstr "Состав"
+
+#, fuzzy
+#~ msgid "Additional charge"
+#~ msgstr "Дополнительный сбор"
+
+#~ msgid "No payment method available"
+#~ msgstr "Метод оплаты не доступен"
+
+#, fuzzy
+#~ msgid "Dismiss"
+#~ msgstr "Пропустить"
+
+#~ msgid "Choose a previously used shipping address"
+#~ msgstr "Использовать имеющийся адрес доставки."
+
+#~ msgid "Add a new shipping address"
+#~ msgstr "Добавить новый адрес доставки"
+
+#~ msgid "Remove this address"
+#~ msgstr "Удалить адрес."
+
+#~ msgid "No shipping method available"
+#~ msgstr "Нет доступных методов доставки"
+
+#~ msgid "Language"
+#~ msgstr "Язык"
+
+#~ msgid "Sign in"
+#~ msgstr "Войти"
+
+#~ msgid "Logout"
+#~ msgstr "Выйти"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "Stay logged in"
+#~ msgstr "Оставаться в системе"
+
+#~ msgid "Login"
+#~ msgstr "Войти"
+
+#~ msgid "Password Forgotten?"
+#~ msgstr "Забыли пароль?"
+
+#~ msgid "Register Yourself"
+#~ msgstr "Зарегистрироваться"
+
+#~ msgid "Toggle navigation"
+#~ msgstr "Переключить навигацию"
+
+#~ msgid "Search"
+#~ msgstr "Поиск"
+
+#~ msgid "Refine your search"
+#~ msgstr "Усточните свой поиск"
+
+#~ msgid "Watch List"
+#~ msgstr "В список"
+
+#~ msgid ""
+#~ "In case you have ordered anything on this site before, please <a href="
+#~ "\"%(login_url)s\">sign in</a> and try again."
+#~ msgstr ""
+#~ "Если Вы заказывали что- нибудь, на этом сайте ранее, пожалуйста <a href="
+#~ "\"%(login_url)s\">войдите в учетную запись</a> и попробуйте еще раз."
+
+#, fuzzy
+#~ msgid "and %(remaining)s <a href=\"%(shop_cart_url)s\">more items</a>."
+#~ msgstr "и %(оставшиеся) <a href=\"%(shop_cart_url)s\">больше единиц</a>."
+
+#~ msgid "Checkout"
+#~ msgstr "Оформить"
 
 #~ msgid "Item canceled "
 #~ msgstr "Отменить"

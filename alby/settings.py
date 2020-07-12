@@ -131,16 +131,17 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    # 'django.middleware.cache.UpdateCacheMiddleware',
+    'alby.system.middleware.ForceDefaultLanguageMiddleware',
+    #'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'shop.middleware.CustomerMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    #'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.gzip.GZipMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware',
+    #'cms.middleware.language.LanguageCookieMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.utils.ApphookReloadMiddleware',
@@ -167,6 +168,10 @@ PHONE_VERIFICATION = PV
 
 # Internationalization
 # https://docs.djangoproject.com/en/stable/topics/i18n/
+
+LOCALE_PATHS = (
+    os.path.join(os.path.dirname(__file__), "locale"),
+)
 
 LANGUAGE_CODE = 'ru'
 
@@ -197,7 +202,7 @@ CMS_LANGUAGES = {
         # 'fallbacks': ['ru', 'en'],
         'redirect_on_fallback': True,
         'public': True,
-        'hide_untranslated': False,
+        'hide_untranslated': True,
     },
     1: [{
         'public': True,
