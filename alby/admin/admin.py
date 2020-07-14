@@ -52,6 +52,25 @@ class VariantImageInline(NestedTabularInline):
     fk_name = 'product'
     extra = 1
 
+from django import forms
+
+class SofaVariantForm(forms.ModelForm):
+    unit_price = forms.DecimalField(required=False, decimal_places = 2)
+
+    def __init__(self, *args, **kwargs):
+        super(SofaVariantForm, self).__init__(*args, **kwargs)
+        self.fields['unit_price'].widget.attrs['min'] = 0.01
+
+    def clean_unit_price(self):
+        price = self.cleaned_data['unit_price']
+        if price <= 0.0099:
+            raise forms.ValidationError("Price cannot be less than 0.01")
+        return price
+
+    class Meta:
+        model = SofaVariant
+        fields = '__all__'
+
 class SofaVariantInLine(NestedStackedInline):
     model = SofaVariant
     inlines = [VariantImageInline, ]
@@ -59,6 +78,11 @@ class SofaVariantInLine(NestedStackedInline):
     readonly_fields = ['product_code',]
     can_delete = True
     extra = 1
+    save_as = True
+    form = SofaVariantForm
+
+
+
 
 class CommodityInventoryAdmin(admin.StackedInline):
     model = CommodityInventory
@@ -158,6 +182,7 @@ class SofaModelAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
     inlines = [ProductImageInlineNested, SofaVariantInLine]
     prepopulated_fields = {'slug': ['product_name']}
     save_as = True
+
 
 admin.site.register(Discount)
 
