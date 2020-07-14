@@ -15,6 +15,9 @@
 {% addtoblock "css" %}<link href="{% static 'alby/plugins/slick/slick.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
 {% addtoblock "css" %}<link href="{% static 'alby/plugins/slick/slick-theme.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
 {% add_data "ng-requires" "django.shop.catalog" %}
+	{% if user.is_superuser %}
+		<div class="text-lg-right small"><a href="/admin/alby/{{ product.product_model}}/{{ product.id}}/change/">Редактировать</a></div>
+	{% endif %}
 		{% include "shop/breadcrumb/default.html" %}
 	{% endwith %}
 {% endblock %}

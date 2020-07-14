@@ -63,7 +63,7 @@ class SofaVariantForm(forms.ModelForm):
 
     def clean_unit_price(self):
         price = self.cleaned_data['unit_price']
-        if price <= 0.0099:
+        if price and price < 0.0099:
             raise forms.ValidationError("Price cannot be less than 0.01")
         return price
 
