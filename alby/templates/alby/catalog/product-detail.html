@@ -1,7 +1,13 @@
 {% extends "alby/pages/default.html" %}
 {% load cms_tags sekizai_tags sass_tags static %}
 
-{% block title %}{{ product.product_name }}{% endblock %}
+{% block title %}
+	{% if product.product_title %}
+		{{ product.product_title }}
+	{% else %}
+		{{ product.product_name }}
+	{% endif %}
+{% endblock %}
 
 {% block breadcrumb %}{% with extra_ance=product.product_name %}
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>

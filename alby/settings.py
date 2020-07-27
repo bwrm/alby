@@ -79,7 +79,7 @@ AUTHENTICATION_BACKENDS = [
 
 INSTALLED_APPS = [
     'django.contrib.auth',
-    # 'email_auth',
+    'email_auth',
     'phoneauth',
     'polymorphic',
     # deprecated: 'djangocms_admin_style',

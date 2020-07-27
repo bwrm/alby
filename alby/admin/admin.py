@@ -102,6 +102,7 @@ class CommodityAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
     base_model = Product
     fields = [
         ('product_name', 'slug'),
+        ('product_title',),
         ('product_code', 'unit_price'),
         'active',
     ]
@@ -119,6 +120,7 @@ class LamelAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAd
         (None, {
             'fields': [
                 ('product_name', 'slug'),
+                ('product_title',),
                 ('product_code', 'unit_price'),
                 ('active', 'discont_scheme'),
             ],
@@ -144,6 +146,7 @@ class FabricAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableA
         (None, {
             'fields': [
                 ('product_name', 'slug'),
+                ('product_title',),
                 ('product_code', 'unit_price'),
                 ('active'),
             ],
@@ -169,6 +172,7 @@ class SofaModelAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
         (None, {
             'fields': [
                 ('product_name', 'slug'),
+                ('product_title',),
             ],
         }),
         (_("Translatable Fields"), {

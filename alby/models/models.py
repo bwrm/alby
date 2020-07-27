@@ -96,6 +96,11 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
         _("Slug"),
         unique=True,
     )
+    product_title = models.CharField(
+        _("Product Title (for SEO)"),
+        max_length=255,
+        blank=True,
+    )
 
     caption = TranslatedField()
 
