@@ -401,7 +401,7 @@ COERCE_DECIMAL_TO_STRING = True
 
 FSM_ADMIN_FORCE_PERMIT = True
 
-ROBOTS_META_TAGS = ('noindex', 'nofollow')
+ROBOTS_META_TAGS = ('nofollow', ) #'noindex'
 
 SERIALIZATION_MODULES = {'json': str('shop.money.serializers')}
 
