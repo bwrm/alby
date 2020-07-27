@@ -7,7 +7,7 @@ from django.apps import AppConfig
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-
+#new comment
 class alby(AppConfig):
     name = 'alby'
     verbose_name = _("My Shop")
