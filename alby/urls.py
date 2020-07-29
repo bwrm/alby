@@ -21,7 +21,16 @@ sitemaps = {'cmspages': CMSSitemap,
 
 def render_robots(request):
     permission = 'noindex' in settings.ROBOTS_META_TAGS and 'Disallow' or 'Allow'
-    return HttpResponse('User-Agent: *\n%s: /\nSitemap: http://alby.by/sitemap.xml\n' % permission, content_type='text/plain')
+    return HttpResponse(''
+                        'User-Agent: *\n'
+                        '%s: /\n'
+                        'Disallow: /personal-pages/\n'
+                        'Disallow: /cart/\n'
+                        'Disallow: /register-customer/\n'
+                        'Disallow: /request-password-reset/\n'
+                        'Disallow: /search/\n'
+                        'Sitemap: http://alby.by/sitemap.xml\n'
+                        '' % permission, content_type='text/plain')
 
 i18n_urls = (
     url(r'^admin/', admin.site.urls),
